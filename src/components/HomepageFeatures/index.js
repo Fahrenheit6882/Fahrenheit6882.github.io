@@ -50,12 +50,23 @@ function Feature({Svg, title, description}) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
+    <section className="test">
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+        <div className={clsx('col col--4')}>
+            <div className="text--center">
+              <img width="400" src="/img/hydration.png"></img>
+            </div>
+            <div className="text--center padding-horiz--md">
+            </div>
+          </div>
+          <div className={clsx('col col--4')}>
+            <div className="text--center">
+              <img width="400" src="/img/astronaut.png"></img>
+            </div>
+            <div className="text--center padding-horiz--md">
+            </div>
+          </div>
         </div>
       </div>
     </section>
