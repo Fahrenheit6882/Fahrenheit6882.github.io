@@ -1,6 +1,12 @@
 # First Robotics Fahrenheit Team Website
 
-This is a [Git Repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) that contains all the source code for our Team's website
+Welcome Students and Mentors! What you are looking at right now is a `README.md` text file that exists inside our Team's [Git Repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository). 
+
+This repository is the source of our website that is available to everyone on the internet at this url: 
+
+[https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
+
+This README file describes how to setup your local laptop to make changes to the website and also provides an overview of how the site is organized. 
 
 # How Setup your Computer
 
