@@ -64,11 +64,9 @@ Whenever new or changed files are pushed to github, then the "Live" site availab
 
 [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
 
-## Types of files
-
 The website is made up of 3 main types of files: 
 
-### HTML 
+## HTML 
 `html` files are text files that contain html source code. These text files end in `.html` and contain source code that must match the html syntax [defined here](https://www.w3.org/TR/2011/WD-html5-20110405/). 
 
 HTML uses `tags` that look like the following. Here's an example of a Heading (`<h1>`) and a Paragraph (`<p>`) tag looks like in an `html` file: 
@@ -80,7 +78,7 @@ HTML uses `tags` that look like the following. Here's an example of a Heading (`
 
 Here's a tutorial to learn about HTML: https://www.w3schools.com/html/default.asp
 
-### CSS (Cascading Style Sheets)
+## CSS (Cascading Style Sheets)
 
 `css` files are text files that contain css source code. These text files end in `.css` and contain source code that must match the css syntax [defined here](https://www.w3.org/TR/CSS2/) 
 
@@ -98,16 +96,14 @@ p {
 
 Here's a tutorial to learn about CSS: https://www.w3schools.com/css/default.asp
 
-### Javascript (js) Files
+## Javascript (js) Files
 
 We're not using javascript yet, but I think we'll need it soon, and it's really fun ;-) 
 
 Here's a tutorial to learn about Javascript: 
 https://www.w3schools.com/js/default.asp
 
-### Git
+## Git
 
 Here's a tutorial to learn about Git: 
 https://www.w3schools.com/git/default.asp
-
-
