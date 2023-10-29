@@ -1,0 +1,17 @@
+
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #e7dcdc;
+}
+
+.fh-main-content * {
+    color: #2e2727;
+}
+
+.fh-link {
+    text-decoration: none;
+}
+
+.fh-red {
+    background-color: #d20000;
+}
