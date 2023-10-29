@@ -1,12 +1,24 @@
 # First Robotics Fahrenheit Team Website
 
-Welcome Students and Mentors! What you are looking at right now is a `README.md` text file that exists inside our Team's [Git Repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository). 
+Welcome Students and Mentors! 
+
+What you are looking at right now is a `README.md` text file that exists inside our Team's [Git Repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository). 
 
 This repository is the source of our website which is available to everyone on the internet at this url: 
 
 [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
 
-This README file describes how to setup your local laptop to make changes to the website and also provides an overview of how the site is organized. 
+# How the site is organized
+
+The [index.html](index.html) page is what is shown when you browse to [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
+
+So far, that's it! 
+
+Later, we can add more `html` pages as needed and either link to them from [index.html](index.html), or create subfolders that will appear as paths in our url. 
+
+For example, to host a page to show at this url: `https://fahrenheitrobotics.org/docs`, simply create a `docs/index.html` file inside this repo. 
+
+There are 2 ways to change the site. Setting up your computer with VS Code is recommended. Quick changes are also possible from your web browser in Github. 
 
 # How Setup your Computer
 
@@ -54,6 +66,17 @@ Copy and paste that link into VS Code like this:
 The next step is to choose which folder on your computer to download the files into. I created a folder named `website`. You can create whatever folder that you want. After you create and choose the folder where you want to save the files, click `Select as Repository Destination`. 
 
 Click the buttons to say that you trust this code, and that's it! You now have the code for our website open in VS Code. 
+
+# How to Make Quick Changes
+
+If needed, it's possible to make quick changes directly from your browser on github.
+
+> [!WARNING]  
+> It's easy to break the website. It's much better to test changes in VS Code on your own computer first before publishing to the live site. Making quick changes as described below should only be done for very small spelling or style fixes, or when it's very inconvenient to use VS Code. 
+
+For example, click to open [index.html](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/blob/main/index.html) in your browser, and then click the pencil icon in the upper left to [edit the file in place](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/edit/main/index.html). Make your changes and click `Commit Changes...` 
+
+After a few minutes, your changes will be live.  
 
 # How the Website is built
 
