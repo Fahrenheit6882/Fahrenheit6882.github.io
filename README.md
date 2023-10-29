@@ -14,7 +14,7 @@ There are 2 ways to make changes the site. Setting up your computer with VS Code
 
 The [index.html](index.html) file at the root of this repository is what is displayed in your browser when you browse to [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
 
-So far, that's it! All we have now is just a single t[index.html](index.html) page. 
+So far, that's it! All we have now is just a single [index.html](index.html) page. 
 
 Later, we can add more `html` pages as needed and either link to them from [index.html](index.html), or create subfolders that will appear as paths in our url. 
 
