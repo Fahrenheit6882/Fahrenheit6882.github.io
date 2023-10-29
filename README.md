@@ -8,19 +8,17 @@ This repository is the source of our website which is available to everyone on t
 
 [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
 
+There are 2 ways to make changes the site. Setting up your computer with VS Code is recommended. Quick changes are also possible from your web browser in Github. See the sections below for more details. 
+
 # How the site is organized
 
-The [index.html](index.html) page is what is shown when you browse to [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
+The [index.html](index.html) file at the root of this repository is what is displayed in your browser when you browse to [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
 
-So far, that's it! 
+So far, that's it! All we have now is just a single t[index.html](index.html) page. 
 
 Later, we can add more `html` pages as needed and either link to them from [index.html](index.html), or create subfolders that will appear as paths in our url. 
 
-For example, to host a page to show at this url: `https://fahrenheitrobotics.org/docs`, simply create a `docs/index.html` file inside this repo. 
-
-There are 2 ways to change the site. Setting up your computer with VS Code is recommended. Quick changes are also possible from your web browser in Github. 
-
-# How Setup your Computer
+# How Setup your Computer to Edit the Site
 
 ## Download and install VS Code
 
@@ -67,12 +65,14 @@ The next step is to choose which folder on your computer to download the files i
 
 Click the buttons to say that you trust this code, and that's it! You now have the code for our website open in VS Code. 
 
-# How to Make Quick Changes
+# How to make quick changes from your browser
 
 If needed, it's possible to make quick changes directly from your browser on github.
 
 > [!WARNING]  
-> It's easy to break the website. It's much better to test changes in VS Code on your own computer first before publishing to the live site. Making quick changes as described below should only be done for very small spelling or style fixes, or when it's very inconvenient to use VS Code. 
+> It's easy to break the website using this technique. It's much better to test changes in VS Code on your own computer first before publishing to the live site. Making quick changes as described below should only be done for small spelling or style fixes, or when it's very inconvenient to use VS Code. 
+
+Click to open any files in github and then click the pencil icon to make changes. When finished, click the `Commit Changes` button. 
 
 For example, click to open [index.html](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/blob/main/index.html) in your browser, and then click the pencil icon in the upper left to [edit the file in place](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/edit/main/index.html). Make your changes and click `Commit Changes...` 
 
