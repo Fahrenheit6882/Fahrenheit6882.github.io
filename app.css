@@ -19,3 +19,12 @@ html, body {
 .fh-red {
     background-color: #d20000;
 }
+
+.about-us {
+    font-size: 25px;
+}
+
+.contact-us {
+    font-size: 30px;
+    text-align: center;
+}
