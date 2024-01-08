@@ -1,15 +1,6 @@
 
-* {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #e7dcdc;
-}
-
 html, body {
     height: 100%;
-}
-
-.fh-main-content * {
-    color: #2e2727;
 }
 
 .fh-link {
@@ -17,14 +8,6 @@ html, body {
 }
 
 .fh-red {
+    color: #fff;
     background-color: #d20000;
-}
-
-.about-us {
-    font-size: 25px;
-}
-
-.contact-us {
-    font-size: 30px;
-    text-align: center;
 }
