@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Todo
 
-- Add docusaurus source code
-- Able to publish docusaurus to `/docs` path
-- Add a `guide` to docs for building the website
-- Add a `guide` to docs describing drive chains
+- [x] Add docusaurus source code
+- [x] Able to run development server to test new docusaurus features
+- [ ] Able to publish docusaurus to `/site` path
+- [x] Add a `guide` to docs for building the website
+- [ ] Add a `guide` to docs describing drive chains
+- [ ] Add the edit urls back inside [docusaurus.config.ts](site/docusaurus.config.ts)
 
 ### Added
 

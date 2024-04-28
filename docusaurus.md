@@ -8,8 +8,22 @@ Docusaurus is written using Javascript. Javascript code must be interpreted in o
 
 In order to use Docusaurus, you must have Node.js installed on your computer. 
 
-Once you have Node.js installed, you can run the following command to install docusaurus: 
+## How I setup docusaurus for the first time
+
+I ran run the following command to install docusaurus (this requires Node.js and `npm`)
 
 ```
-npx create-docusaurus@latest my-website classic --typescript
+npx create-docusaurus@latest site classic --typescript
 ```
+
+## How to start development server
+
+Starting a [development server](https://docusaurus.io/docs/installation#running-the-development-server) is a convenient way to host a full copy of the website on your laptop. This way, you can make changes to files and then immediately see what the new site will look like. No one else will see the changes until you deploy the changes to github.
+
+To start a development server, run the following: 
+
+```
+cd site
+npm run start
+```
+
