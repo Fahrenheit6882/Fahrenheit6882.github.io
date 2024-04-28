@@ -27,3 +27,11 @@ cd site
 npm run start
 ```
 
+
+## How to deploy
+
+```
+yarn deploy
+```
+
+
