@@ -5,11 +5,11 @@ sidebar_position: 3
 
 # How this site is organized
 
-The [index.html](../../../index.html) and [app.css](../../../app.css) files at the root of our git repository are displayed in your browser when you browse to [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
+The `index.html` and `app.css` files at the root of our git repository are displayed in your browser when you browse to [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
 
 You can change these files by simply opening them in an editor (such as VS Code). When they are saved and commited back to our git repository, then they will be hosted by [Github Pages](https://pages.github.com/) and available for everyone on the internet to see. 
 
-It is also possible to add more `html` pages as needed and either link to them from [index.html](index.html), or create subfolders that will appear as paths in our url. 
+It is also possible to add more `html` pages as needed and either link to them from `index.html`, or create subfolders that will appear as paths in our url. 
 
 However, everytime you want to create a new `html` page, you will need to copy the existing `index.html`. Let's say for example that we were to create two more html files, one named `sponsors.html` that would display all of our sponsors, and a second named `calendar.html` to show our team calendar. 
 
