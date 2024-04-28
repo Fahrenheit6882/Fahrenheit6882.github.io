@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfahrenheit_docusaurus=self.webpackChunkfahrenheit_docusaurus||[]).push([[583],{8198:(e,s,u)=>{u.r(s),u.d(s,{default:()=>c});u(8774);var r=u(4586),t=(u(1107),u(6347));var a=u(4848);function c(){const{siteConfig:e}=(0,r.A)();return(0,a.jsx)(t.rd,{to:"/site/docs/welcome"})}}}]);
