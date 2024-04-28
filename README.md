@@ -8,4 +8,4 @@ This repository is the source of our website which is available to everyone on t
 
 [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
 
-For more information, please see our [website guides](https://fahrenheitrobotics.org/site/docs/website). 
+For more information, please see our [Team Guides](http://localhost:3000/site/docs/welcome). 
