@@ -2,13 +2,13 @@
 
 TEMP_SITE="../temp-site"
 
-#(cd ./site; yarn; yarn build)
+(cd ./site; yarn; yarn build)
 
-mkdir -p "$TEMP_SITE"
-rsync -avu --delete "./site/build/" "$TEMP_SITE/site"
-rsync -avu --delete "./img/" "$TEMP_SITE/img"
-cp ./index.html "$TEMP_SITE/index.html"
-cp ./app.css "$TEMP_SITE/app.css"
+#mkdir -p "$TEMP_SITE"
+#rsync -avu --delete "./site/build/" "$TEMP_SITE/site"
+#rsync -avu --delete "./img/" "$TEMP_SITE/img"
+#cp ./index.html "$TEMP_SITE/index.html"
+#cp ./app.css "$TEMP_SITE/app.css"
 
 # git checkout main
 
