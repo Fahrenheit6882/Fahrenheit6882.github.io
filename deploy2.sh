@@ -19,3 +19,6 @@ cp "$TEMP_SITE/app.css" "./app.css"
 
 # Commit changes, then run: 
 # git push origin main
+TAG=1.1.0
+# git tag $TAG
+# git push origin $TAG
