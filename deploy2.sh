@@ -12,8 +12,8 @@ TEMP_SITE="../temp-site"
 
 # git checkout main
 
-rsync -avu --delete "$TEMP_SITE/site/" "./site"
-rsync -avu --delete "$TEMP_SITE/img/" "./img"
+rsync -av --delete "$TEMP_SITE/site/" "./site"
+rsync -av --delete "$TEMP_SITE/img/" "./img"
 cp "$TEMP_SITE/index.html" "./index.html"
 cp "$TEMP_SITE/app.css" "./app.css"
 
