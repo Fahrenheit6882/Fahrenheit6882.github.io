@@ -1,25 +1,9 @@
 ---
 sidebar_label: 'How to make changes'
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# How this site is organized
-
-The `index.html` and `app.css` files at the root of our git repository are displayed in your browser when you browse to [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
-
-You can change these files by simply opening them in an editor (such as VS Code). When they are saved and commited back to our git repository, then they will be hosted by [Github Pages](https://pages.github.com/) and available for everyone on the internet to see. 
-
-It is also possible to add more `html` pages as needed and either link to them from `index.html`, or create subfolders that will appear as paths in our url. 
-
-However, everytime you want to create a new `html` page, you will need to copy the existing `index.html`. Let's say for example that we were to create two more html files, one named `sponsors.html` that would display all of our sponsors, and a second named `calendar.html` to show our team calendar. 
-
-That could work fine. But, then imagine we want to update the links displayed across the top of our website. We would need to edit all 3 html files (`index.html`, `sponsors.html`, and `calendar.html`) to add a new link. You can see how this will become tedious!
-
-So, we're using a project call [Docusaurs](https://docusaurus.io/) to help us manage the them and look and feel of our site. 
-
-Docusaurus is a content management system and a static site generator. 
-
-All the files found inside the [site](../../../site/) directory are part of [Docusaurs](https://docusaurus.io/). 
+# How to make changes
 
 ## Download and install VS Code
 
@@ -69,6 +53,19 @@ The next step is to choose which folder on your computer to download the files i
 
 Click the buttons to say that you trust this code, and that's it! You now have the code for our website open in VS Code. 
 
+## How to make changes
+
+Make sure that you are viewing the `docusaurus` git branch. 
+
+Edit `index.html` to change the Homepage. 
+
+Or, edit any of the files under the `site` directory to and and update the Guides and Blogs. 
+
+For example, you could add a whole new guide by creating a new folder under the `site/docs` folder. And then add some markdown files under the new folder. See the `site/docs/website` folder for a sample. 
+
+After you've made your changes, read [this page](/site/docs/website/website-deploy) to learn how you can view the new site on your laptop before pushing it up to the live site. 
+
+
 ## Make quick changes from your browser
 
 If needed, it's possible to make quick changes directly from your browser on github.
@@ -77,7 +74,11 @@ If needed, it's possible to make quick changes directly from your browser on git
 It's easy to break the website using this technique. It's much better to test changes in VS Code on your own computer first before publishing to the live site. Making quick changes as described below should only be done for small spelling or style fixes, or when it's very inconvenient to use VS Code. 
 :::
 
-Click to open any files in github and then click the pencil icon to make changes. When finished, click the `Commit Changes` button. 
+The files in the `main` branch are what are displayed on the public website. Click to open any files in the `main` branch and then click the pencil icon to make changes. When finished, click the `Commit Changes` button. 
+
+:::warning
+Any changes you make will be overwritten the next time we deploy the site. So make sure to also make your changes to the `docusaurus` branch. 
+:::
 
 For example, click to open [index.html](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/blob/main/index.html) in your browser, and then click the pencil icon in the upper left to [edit the file in place](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/edit/main/index.html). Make your changes and click `Commit Changes...` 
 

@@ -8,11 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ### Todo
-- [ ] The logo on the Guides page redirects incorrectly to https://fahrenheitrobotics.org/site. Need to fix
 - [ ] Add a guide describing how to add new section to Guides
-- [ ] Add a guide describing how to deploy new version of site
+- [ ] Implement github actions to automatically deploy site whenever someone pushes to `docusaurus` branch
 - [ ] Add a `guide` to docs describing drive chains
-- [ ] Add the edit urls back inside [docusaurus.config.ts](site/docusaurus.config.ts)
+- [ ] Add the edit urls back inside [docusaurus.config.ts](site/docusaurus.config.ts)?
+
+## [1.2.0](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/tree/1.2.0) - July 2024
+
+### Added
+
+- [x] Added guide describing project and tasks
+
+### Changed
+
+- [x] Updated the guide describing how to deploy new version of site
 
 ## [1.1.0](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/tree/1.1.0) - July 2024
 

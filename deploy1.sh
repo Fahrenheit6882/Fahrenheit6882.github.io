@@ -9,6 +9,8 @@ rsync -av --delete "./site/build/" "$TEMP_SITE/site"
 rsync -av --delete "./img/" "$TEMP_SITE/img"
 cp ./index.html "$TEMP_SITE/index.html"
 cp ./app.css "$TEMP_SITE/app.css"
+cp ./README.md "$TEMP_SITE/README.md"
+cp ./CHANGELOG.md "$TEMP_SITE/CHANGELOG.md"
 
 # git checkout main
 
