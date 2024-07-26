@@ -16,6 +16,8 @@ rsync -av --delete "$TEMP_SITE/site/" "./site"
 rsync -av --delete "$TEMP_SITE/img/" "./img"
 cp "$TEMP_SITE/index.html" "./index.html"
 cp "$TEMP_SITE/app.css" "./app.css"
+cp "$TEMP_SITE/README.md" "./README.md"
+cp "$TEMP_SITE/CHANGELOG.md" "./CHANGELOG.md"
 
 # Commit changes, then run: 
 # git push origin main

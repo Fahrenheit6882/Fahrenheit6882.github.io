@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfahrenheit_docusaurus=self.webpackChunkfahrenheit_docusaurus||[]).push([[3860],{4785:e=>{e.exports=JSON.parse('{"permalink":"/site/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
