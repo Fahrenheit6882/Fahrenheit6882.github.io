@@ -63,20 +63,20 @@ Markdown files are then converted to html, which can then be understood by a web
 
 So far, all the technologies we have discussed are simple ways to describe static content. When you need to make things come alive, you need more power :-) 
 
-Javascript is a full programming language. This means that you can use javascript to write just about any programming language you can dream up. Other popular programming languages include: `Java`, `C#`, `Go`, `Python`, `Php`, and lots of others. 
+Javascript is a full programming language. This means that you can use javascript to write just about any program that you can dream up. Other popular programming languages include: `Java`, `C#`, `Go`, `Python`, `Php`, and lots of others. 
 
 Web browsers can run "client side" javascript. This means that they can't quite take advantage of the full power of javascript, but they can run a lot of it. 
 
 Node.js is another javascript runtime environemnt. Node.js can run all of javascript completely unrestricted. We often call this "server side" javascript. 
 
-As you can imagine, if we allowed Web Browsers to run any program, it would be very difficult to stop hackers from running viruses on everyone's computers. That's why they are limited as to what pieces of javascript their allowed to run. 
+As you can imagine, if we allowed Web Browsers to run any program, it would be very difficult to stop hackers from running viruses on everyone's computers. That's why they are limited as to what pieces of javascript they're allowed to run. 
 
 Here's a tutorial to learn about Javascript: 
 https://www.w3schools.com/js/default.asp
 
 ## Version Control
 
-Version Control is a strateg on how multiple people can collaborate on the same file and track changes to that file over time. [Here's an overview about Version Control](https://www.atlassian.com/git/tutorials/what-is-version-control)
+Version Control is a strategy to allow multiple people to collaborate and edit the same files and track changes to files over time. [Here's an overview about Version Control](https://www.atlassian.com/git/tutorials/what-is-version-control)
 
 ## Git
 
