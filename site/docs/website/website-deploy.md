@@ -9,6 +9,14 @@ sidebar_position: 5
 
 After you edit the files in VS Code installed on your computer, you can run a server that will serve the site locally on your computer. This is great for testing and to make sure the changes look good before publishing them out to the live site. 
 
+:::note
+TODO: describe how to install `nvm` and how to use `nvm` to install Node.js and `npm`. Then show how to use `npm` to install `yarn`. 
+:::
+
+:::note
+Node.js 23.x didn't work for me, I run into a known issue of [Unexpected end of JSON input](https://github.com/facebook/docusaurus/issues/10684). `npm use 22.3` works for me. 
+:::
+
 In order to build the website you'll need a tool called `yarn`. To install yarn, follow the guide [here](https://yarnpkg.com/getting-started). 
 
 Once you have `yarn` installed, use the following commands to build and start a server that will serve the site on your computer: 
