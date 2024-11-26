@@ -63,7 +63,9 @@ git push origin main
 ```
 
 7. Create a git tag for the release. 
-git push origin <new tag>
+```shell
+git push origin <NEW_TAG>
+```
 
 Whenever new or changed files are pushed to github, then the "Live" site available here will show the changes: 
 
