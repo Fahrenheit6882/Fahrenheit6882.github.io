@@ -38,10 +38,32 @@ cp CHANGELOG.md $TEMP_SITE/CHANGELOG.md
 ```
 
 3. Switch to the `main` branch
+
+```shell
+git checkout main
+```
+
 4. Replace everything in the `site` directory of the main branch with contents of the copy of the `build` directory
 5. Replace `index.html` and `app.css` files
+```shell
+export TEMP_SITE="../temp-site"
+rm -rf site/
+mv $TEMP_SITE/site site
+rm -rf img/
+mv $TEMP_SITE/img img
+mv $TEMP_SITE/index.html index.html
+mv $TEMP_SITE/app.css app.css
+mv $TEMP_SITE/README.md README.md
+mv $TEMP_SITE/CHANGELOG.md CHANGELOG.md
+```
 6. Push to github
+
+```shell
+git push origin main
+```
+
 7. Create a git tag for the release. 
+git push origin <new tag>
 
 Whenever new or changed files are pushed to github, then the "Live" site available here will show the changes: 
 
