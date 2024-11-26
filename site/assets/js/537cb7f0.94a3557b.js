@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfahrenheit_docusaurus=self.webpackChunkfahrenheit_docusaurus||[]).push([[2998],{5665:e=>{e.exports=JSON.parse('{"authors":[{"name":"Dave Paroulek","title":"Mentor","url":"https://github.com/upgradingdave","imageURL":"https://github.com/upgradingdave.png","key":"upgradingdave","page":null,"count":1}]}')}}]);
