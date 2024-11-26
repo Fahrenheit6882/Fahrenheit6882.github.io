@@ -1,0 +1,82 @@
+---
+sidebar_label: 'Javascript'
+sidebar_position: 3
+---
+
+# Javascript
+
+Javascript is a full, [turing complete](https://simple.wikipedia.org/wiki/Turing_complete), programming language. In other words, you can use Javascript to write any program that you can dream up. 
+
+[Node.js](https://nodejs.org) is a javascript runtime, which means, you can use `Node.js` to run javascript programs. Javascript is probably most famous for being used to develop Web sites. In fact, browsers can run a subset of javascript.
+
+[Here's a tutorial about Javascript](https://www.w3schools.com/js/)
+
+:::tip
+
+Want to try running some javascript? Most browsers have a javascript console built right in. For example, in Chrome, try right clicking anywhere on a page and choose `inspect`. That should open a new window. Choose `Console`. Then put your cursor inside the console and type `alert('Hola!');` and click enter. You should see an alert pop up :-) 
+
+:::
+
+# Install Node.js
+
+## Node Version Manager
+
+The Node Version Manager can be used to easily install different versions of `Node.js`. 
+
+Follow [this guide here](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/) to install Node Version Manager. 
+
+If installed correctly, you should be able to run this the `nvm` command from a terminal like this: 
+
+```shell
+$ nvm list
+
+    23.2.0
+  * 22.3.0 (Currently using 64-bit executable)
+```
+
+## Install Node.js (and Node Package Manager, npm)
+
+Use the `nvm` command to install node version 22.3.0 like this: 
+
+```shell
+nvm install 22.3.0
+```
+
+Once Node is installed you should be able to run the `node` command from a terminal like this: 
+
+```shell
+$ node
+Welcome to Node.js v22.3.0.
+Type ".help" for more information.
+```
+
+You should also be able to run `npm` like this: 
+
+```shell
+$ npm --version
+10.8.1
+
+```
+
+## Install Yarn
+
+[yarn](https://classic.yarnpkg.com/) is an example of a Dependency, Package Management, and Build Tool. It's a program written in javascript that helps you to manage and run javascript code.
+
+:::note
+
+Each programming language typically has it's own build tools. Probably the O.G build tool is [make](https://www.gnu.org/software/make/). For example, java programmers use [maven](https://maven.apache.org/) and/or [gradle](https://gradle.org/). Python uses [pip](https://packaging.python.org/). Javascript, for some reason, has a bunch of tools, for example: `npm` and `yarn`. 
+
+:::
+
+To install `yarn` run the following command from a terminal: 
+
+```shell
+npm install --global yarn
+```
+
+If `yarn` is installed, you should be able to run `yarn` like this: 
+
+```shell
+$ yarn --version
+1.22.22
+```

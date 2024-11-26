@@ -3,25 +3,42 @@ sidebar_label: 'Git & Github'
 sidebar_position: 2
 ---
 
+# Version Control
+
+Version Control is a strategy to help multiple people collaborate and edit the same files and track changes to files over time. [Here's an overview about Version Control](https://www.atlassian.com/git/tutorials/what-is-version-control)
+
+`git` is an example of a Source Version Control Manager. There are other source controls managers as well, such as [subversion](https://subversion.apache.org/) and [perforce](https://www.perforce.com/). But, these days, `git` is the most popular. 
+
 # Git
 
-Version Control is a strategy to allow multiple people to collaborate and edit the same files and track changes to files over time. [Here's an overview about Version Control](https://www.atlassian.com/git/tutorials/what-is-version-control)
+[Git](https://git-scm.com/) is a version control program that was invented to help people edit text files together. 
 
-Git is a version control system. [Here's a tutorial about Git](https://www.w3schools.com/git/default.asp) 
+[Here's a tutorial about Git](https://www.w3schools.com/git/default.asp) 
 
-## Install Git
+## How to install Git
 
-TODO: Describe how to install on Mac and Windows
+Go to [the git download page here](https://git-scm.com/downloads) and download the installation for your operating system.
+
+After you install Git, you should check to make sure it works. If you're on Mac, open a terminal. If you're on Windows, search for a program called `git bash` and run that to start a terminal. Then try typing `git --help` and press enter. If `git` is installed, you should see something similar to the following:  
+
+```shell
+$ git --version
+git version 2.47.0.windows.2
+```
 
 # Configure Git
 
-Before using git to track your code, you need to tell it your email and username. 
+Before using `git` to track your code, you need to tell it your email and username. 
 
 ```shell
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 # Github
+
+:::note
+In 2008, a group of people thought it would be cool if they could share their `git` repositories online and so they created `Github`. There is another popular site for sharing git repositories called [Gitlab](https://about.gitlab.com/)
+:::
 
 ## Configure a ssh key for Github
 

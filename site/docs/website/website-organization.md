@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'How the site is organized'
-sidebar_position: 3
+sidebar_position: 6
 ---
 
 # How this site is organized
