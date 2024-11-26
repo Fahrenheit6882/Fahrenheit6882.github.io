@@ -21,7 +21,7 @@ For example, you could add a whole new guide by creating a new folder under the 
 
 After you edit the files in VS Code installed on your computer, you can run a server that will serve the site locally on your computer. This is great for testing and to make sure the changes look good before publishing them out to the live site. 
 
-In order to build the website you'll need a tool called `yarn`. To install yarn, follow [our team guide here](../software/javascript.mdx#yarn). 
+In order to build the website you'll need a tool called `yarn`. To install yarn, follow [our team guide here](../software/javascript.mdx). 
 
 :::note
 Node.js 23.x didn't work for me, I run into a known issue of [Unexpected end of JSON input](https://github.com/facebook/docusaurus/issues/10684). `npm use 22.3` works for me. 
