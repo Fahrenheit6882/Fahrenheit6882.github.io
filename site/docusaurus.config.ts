@@ -90,11 +90,11 @@ const config: Config = {
           position: 'left',
           label: 'Guides',
         },
-        {
-          to: '/blog', 
-          label: 'Newsletter', 
-          position: 'left'
-        },
+        // {
+        //   to: '/blog', 
+        //   label: 'Newsletter', 
+        //   position: 'left'
+        // },
         {
           href: 'https://frc-events.firstinspires.org/team/6882',
           label: 'FIRST Team 6882',
