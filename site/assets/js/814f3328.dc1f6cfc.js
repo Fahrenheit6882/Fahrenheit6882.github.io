@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfahrenheit_docusaurus=self.webpackChunkfahrenheit_docusaurus||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Newsletter - First Issue","permalink":"/site/blog/newsletter-issue-1","unlisted":false,"date":"2025-03-28T00:00:00.000Z"}]}')}}]);
