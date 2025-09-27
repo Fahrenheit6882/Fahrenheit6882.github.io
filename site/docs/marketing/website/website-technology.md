@@ -71,7 +71,7 @@ Node.js is another javascript runtime environemnt. Node.js can run all of javasc
 
 As you can imagine, if we allowed Web Browsers to run any program, it would be very difficult to stop hackers from running viruses on everyone's computers. That's why they are limited as to what pieces of javascript they're allowed to run. 
 
-See [our team's guide here](../software/javascript.mdx) on how to setup your computer to run javascript. 
+See [our team's guide here](../../software/javascript.mdx) on how to setup your computer to run javascript. 
 
 ## Version Control
 

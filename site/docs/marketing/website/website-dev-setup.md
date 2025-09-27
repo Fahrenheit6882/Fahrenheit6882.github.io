@@ -11,7 +11,7 @@ You'll need to install and setup the following software before you can make chan
 
 All the files in this repository are simple text files. You can use any text editor program you want to change these files. But, we suggest you use VS Code, which is a editor program built specficially to edit source code text files. 
 
-[See our Guide to setup VS Code here](../software/vscode.mdx)
+[See our Guide to setup VS Code here](../../software/vscode.mdx)
 
 ## Download files using VS Code and git
 
@@ -46,4 +46,4 @@ Click the buttons to say that you trust this code, and that's it! You now have t
 
 We use a software library called [docusaurus](https://docusaurus.io/) to help build our site. `docusaurus` is written in a programming language called `javascript`. 
 
-[Follow this guide here](../software/javascript.mdx) to setup your computer to run javascript. 
+[Follow this guide here](../../software/javascript.mdx) to setup your computer to run javascript. 

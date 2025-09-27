@@ -14,7 +14,7 @@ There are 2 parts to our site:
 
 The [index.html](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/blob/docusaurus/index.html) and [app.css](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/blob/docusaurus/app.css) files at the root of our git repository are displayed in your browser when you browse to [https://fahrenheitrobotics.org](https://fahrenheitrobotics.org)
 
-You can change these files by simply opening them in an editor (such as VS Code). See [this page](/site/docs/website/website-edit) for more details on how to edit the site. 
+You can change these files by simply opening them in an editor (such as VS Code). See [this page](../website/website-edit) for more details on how to edit the site. 
 
 It is also possible to add more `html` pages as needed and either link to them from `index.html`, or create subfolders that will appear as paths in our url. 
 
@@ -32,7 +32,7 @@ A `content management system` is a fancy term to describe software that helps yo
 
 A `static site generator` is software that is capable of taking files such as [markdown](https://www.markdownguide.org/) and compile them into `html`, `css`, and `javascript` which can then be served to browsers. 
 
-So, all the files found inside the [site](../../../site/) directory are part of [Docusaurs](https://docusaurus.io/). 
+So, all the files found inside the [site](../../../../site/) directory are part of [Docusaurs](https://docusaurus.io/). 
 
 We will be able to use Docusaurus to easily publish blog posts and guides. 
 

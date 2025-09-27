@@ -8,7 +8,7 @@ sidebar_position: 3
 Make sure that you are viewing the `docusaurus` git branch. 
 
 :::note
-TODO: Add a section to [git docs](../software/git.mdx) to show how to list and change branches
+TODO: Add a section to [git docs](../../software/git.mdx) to show how to list and change branches
 :::
 
 Edit `index.html` to change the Homepage. 
@@ -21,7 +21,7 @@ For example, you could add a whole new guide by creating a new folder under the 
 
 After you edit the files in VS Code installed on your computer, you can run a server that will serve the site locally on your computer. This is great for testing and to make sure the changes look good before publishing them out to the live site. 
 
-In order to build the website you'll need a tool called `yarn`. To install yarn, follow [our team guide here](../software/javascript.mdx). 
+In order to build the website you'll need a tool called `yarn`. To install yarn, follow [our team guide here](../../software/javascript.mdx). 
 
 :::note
 Node.js 23.x didn't work for me, I run into a known issue of [Unexpected end of JSON input](https://github.com/facebook/docusaurus/issues/10684). `npm use 22.3` works for me. 
