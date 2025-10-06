@@ -11,12 +11,4 @@ cp ./app.css $TEMP_SITE/app.css
 cp README.md $TEMP_SITE/README.md
 cp CHANGELOG.md $TEMP_SITE/CHANGELOG.md
 
-# git checkout main
-
-#rsync -av --delete "$TEMP_SITE/site/" "./site"
-#rsync -av --delete "$TEMP_SITE/img/" "./img"
-#cp "$TEMP_SITE/index.html" "./index.html"
-#cp "$TEMP_SITE/app.css" "./app.css"
-
-# Commit changes, then run: 
-# git push origin main
+# git checkout main, then run `scripts/deploy2.sh`
