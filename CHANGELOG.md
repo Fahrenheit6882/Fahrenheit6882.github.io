@@ -13,6 +13,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [ ] Add a `guide` to docs describing drive chains
 - [ ] Add the edit urls back inside [docusaurus.config.ts](site/docusaurus.config.ts)?
 
+## [1.3.0](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/tree/1.3.0) - October 2025
+
+### Added
+
+- [x] Added guide describing CAD
+
+### Changed
+
+- [x] Updated Software list and other pages
+
 ## [1.2.0](https://github.com/Fahrenheit6882/Fahrenheit6882.github.io/tree/1.2.0) - July 2024
 
 ### Added
