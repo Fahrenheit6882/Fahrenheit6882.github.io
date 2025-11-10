@@ -15,4 +15,31 @@ The [Open Broadcast Software (OBS)](https://obsproject.com) makes it possible to
 
 [Download OBS here](https://obsproject.com/download)
 
+## Chocolatey
 
+Downloading, installing, and keeping software updated on Windows can be challenging. Chocolatey is software to help you manage software. 
+
+Other operating systems such as Linux, have their own package managers. Chocolatey is a package manager for Windows
+
+[Install Chocolatey](https://chocolatey.org/install)
+
+## Maven
+
+When you write java code, you can use `javac` to compile it and then run it with the `java` command. This works
+great for simple programs that fit into a single text file. You can even package your code into a Java Archive, aka `jar` file, and run it that way. 
+
+However, it quickly becomes tedious to manually call `javac` to compile multiple java and jar files. This is where maven can help.
+
+Here's the [maven installation guide](https://maven.apache.org/install.html)
+
+You can use [chocolatey](#chocolatey) to install maven on Windows by Running Powershell as Administrator and run: `choco install maven`
+
+:::note
+Gradle is another popular java build tool that was inspired by Maven. If you are starting a new java project you can use either Maven or Gradle to build and manage your project. Maven uses `xml` to know how to compile and manage java projects. Gradle uses the `groovy` programming language. The `groovy` programming language is another language that can run on the Java virtual machine (JVM). [WPLib](/software/miscellaneous.mdx#wplib) uses `Gradle` to build and deploy Robot code written in Java
+:::
+
+### WPLib Maven Repository
+
+As of November 2025, the WPLib maven artifacts are available here:
+
+https://frcmaven.wpi.edu/ui/native/release/
