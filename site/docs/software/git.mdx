@@ -15,7 +15,7 @@ Version Control is a strategy to help multiple people collaborate and edit the s
 
 [Here's a tutorial about Git](https://www.w3schools.com/git/default.asp) 
 
-## How to install Git
+### How to install Git
 
 Go to [the git download page here](https://git-scm.com/downloads) and download the installation for your operating system.
 
@@ -26,7 +26,7 @@ $ git --version
 git version 2.47.0.windows.2
 ```
 
-# Configure Git
+### Configure Git
 
 Before using `git` to track your code, you need to tell it your email and username. 
 
@@ -36,13 +36,27 @@ git config --global user.name "Your Name"
 ```
 # Github
 
-:::note
-In 2008, a group of people thought it would be cool if they could share their `git` repositories online and so they created `Github`. There is another popular site for sharing git repositories called [Gitlab](https://about.gitlab.com/)
+:::info
+What exactly is Github? In 2008, a group of people thought it would be cool if they could share their `git` repositories online and so they created `Github`. 
+But it's not necessary to use Github to use git. [This guide here](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols) describes how to host your own git server and collaborate with your friends and teamates. 
+There are also other popular sites for sharing git repositories such as [Gitlab](https://about.gitlab.com/) and [Bitbucket](https://bitbucket.org/)
 :::
 
-## Configure a ssh key for Github
+### Github Organization
 
-TODO: link to docs to setup ssh key for git
+[Fahrenheit6882](https://github.com/Fahrenheit6882) is our Team's Github Organization. It includes code repositories and Projects. 
 
+Some of the issue lists and projects inside the organization are private. In order to get access, you need a github account. 
+Once you have a github account and are able to successfully sign in, one of the mentors can grant you access by following these steps:
 
+1. Navigate to this page: https://github.com/Fahrenheit6882
+2. Click `People` menu
+3. Click `Invite member`, search and add the new member by github username and/or email address
 
+![Add people to organization](img/screenshotGithubOrgAddPeople.png)
+
+### Configure a ssh key for Github
+
+If you would like to push code to github, it will require you to setup a SSH Key.
+
+[Follow this guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) to setup a ssh key for git
