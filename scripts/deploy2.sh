@@ -13,6 +13,6 @@ mv $TEMP_SITE/CHANGELOG.md CHANGELOG.md
 
 # Commit changes, then run: 
 # git push origin main
-export TAG=1.3.0
+export TAG=1.4.0
 # git tag $TAG
 # git push origin $TAG
