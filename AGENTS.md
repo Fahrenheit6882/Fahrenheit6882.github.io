@@ -24,7 +24,7 @@ Fahrenheit6882.github.io/
 ├── img/                # Images used by the landing page
 ├── CNAME               # Domain: fahrenheitrobotics.org
 ├── CHANGELOG.md        # Semantic-versioned release notes
-├── scripts/            # Manual deployment scripts (deploy0.sh, deploy1.sh)
+├── scripts/            # Deployment scripts (deploy0.sh, deploy1.sh; deploy2.sh lives only on `main`)
 └── site/               # Docusaurus source — ALL content work happens here
     ├── docs/           # Documentation articles
     ├── blog/           # Newsletter/blog posts
@@ -143,15 +143,23 @@ The Docusaurus site is served at the `/site/` base path (not `/`). The root `/` 
 
 ## Deployment Process (Manual)
 
-Deployment is currently **manual** (no CI/CD yet — it's a tracked TODO in CHANGELOG.md).
+Deployment is currently **manual** (no CI/CD yet — it's a tracked TODO in CHANGELOG.md). Use the `deploy-website` skill (see below) to run this — it was tested end-to-end and confirmed live on 2026-08-23 (tag `1.5.1`).
 
-1. Build: `cd site && yarn build`
-2. Run staging scripts: `bash scripts/deploy0.sh && bash scripts/deploy1.sh`
-   - Copies `site/build/` → staging area along with `img/`, `index.html`, `app.css`
-3. Switch to `main`: `git checkout main`
-4. Replace `site/`, `img/`, and root HTML files with staged content
-5. Push: `git push origin main`
-6. Tag the release: `git push origin <NEW_TAG>`
+1. On `docusaurus`, working tree clean, push the branch too: `git push origin docusaurus`
+2. Build: `./scripts/deploy0.sh` (runs `yarn && yarn build` inside `site/`)
+3. Stage: `./scripts/deploy1.sh` — copies `site/build/`, `img/`, `index.html`, `app.css`, `README.md`, `CHANGELOG.md` into `../temp-site` (sibling dir, outside git)
+4. Switch to `main` and fast-forward it: `git checkout main && git pull --ff-only origin main` — local `main` is rarely checked out and gets stale, always sync before replacing files
+5. **`scripts/deploy2.sh` only exists on `main`** (it excludes itself from its own replace-list so it survives every deploy — it doesn't exist on `docusaurus`). Bump the `TAG` variable inside it to the next version, then run it — it swaps in the staged `site/`, `img/`, `index.html`, `app.css`, `README.md`, `CHANGELOG.md`
+6. Commit, push, and tag:
+   ```bash
+   git add -A
+   git commit -m "Deploying version $TAG"
+   git push origin main
+   git tag $TAG
+   git push origin $TAG
+   ```
+7. Return to work: `git checkout docusaurus`
+8. Verify live: GitHub Pages takes a minute or two to propagate. Poll a newly-added file (e.g. `curl -o /dev/null -w '%{http_code}' https://fahrenheitrobotics.org/img/<new-file>`) until it 200s, then ask the human to hard-refresh and visually confirm — origin catching up doesn't always mean the CDN edge has too.
 
 See `site/docs/marketing/website/website-deploy.md` for the full step-by-step guide.
 
@@ -169,6 +177,23 @@ See `site/docs/marketing/website/website-deploy.md` for the full step-by-step gu
 
 ---
 
+## Homepage Slideshow (`index.html`)
+
+The landing page has a plain-JS carousel (`.mySlides` divs near the top of `index.html`). Use the `add-slideshow-photo` skill to add new photos — it encodes what we worked out below.
+
+- **Naming**: `img/slide_<short_description>.jpeg` — lowercase, underscore-separated.
+- **Sourcing**: photos usually come from a Google Photos share link (right-click a photo → "Copy image address" → a `lh3.googleusercontent.com/...` URL) which can be `curl`'d directly; verify the download is actually an image (`file -b --mime-type`) before using it, since expired/malformed links return an HTML error page instead.
+- **Target sizes** — every slide must render at the **same height**, so orientation determines the target:
+  | Orientation | Crop/resize to | `<img>` inline style |
+  |---|---|---|
+  | Landscape/square | **1200×600** (2:1) | `style="width:100%"` |
+  | Portrait | **400×600** (2:3) | `style="width:33.33%"` |
+
+  Center-crop to the target aspect ratio first (`sips -c <h> <w>`), then resize exactly (`sips -z <h> <w>`) so nothing gets distorted.
+- **Why 33.33% for portrait, not 100%**: all slides use `width:100%` of the same container and no fixed height, so display height is driven entirely by the image's own aspect ratio at that width. A 2:1 landscape image at 100% width renders at height = 0.5 × container width. A 2:3 portrait image at 100% width would render 3× as tall (height = 1.5 × container width) — visibly blowing up the carousel on that slide. Scaling portrait images down to 33.33% width makes their rendered height match the landscape slides exactly (the math: target height ÷ 1.5 aspect = 1/3 of container width).
+
+---
+
 ## Things to Know
 
 - **Do not modify `index.html` or `app.css`** for doc content changes — those files belong to the separate landing page, not the Docusaurus site.
@@ -177,3 +202,12 @@ See `site/docs/marketing/website/website-deploy.md` for the full step-by-step gu
 - The `site/build/` directory is gitignored — it is the Docusaurus build output.
 - A `.nojekyll` file at the repo root disables Jekyll processing on GitHub Pages.
 - Docusaurus version is **3.x** — use v3 docs, not v2.
+
+---
+
+## Available Claude Skills (`.claude/skills/`)
+
+Project-scoped skills to prefer over ad-hoc steps:
+
+- **`add-slideshow-photo`** — add photo(s) to the `index.html` homepage carousel: sourcing, naming, cropping/resizing to the sizes above, and wiring the new slide into the markup.
+- **`deploy-website`** — run the full manual deploy described above (build → stage → checkout `main` → replace → commit/push/tag → verify live).
