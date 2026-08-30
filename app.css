@@ -5,9 +5,14 @@ html, body {
 
 .fh-link {
     text-decoration: none;
+    color: inherit;
 }
 
 .fh-red {
     color: #fff;
     background-color: #d20000;
+}
+
+.fh-text-red {
+    color: #d20000;
 }
