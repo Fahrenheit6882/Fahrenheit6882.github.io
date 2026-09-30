@@ -417,7 +417,7 @@
 
 .videoCard {
   flex: 1;
-  min-width: 320px;
+  min-width: min(320px, 100%);
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
@@ -526,7 +526,7 @@
   border-radius: 20px;
   padding: 36px;
   flex: 1;
-  min-width: 280px;
+  min-width: min(280px, 100%);
   transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
@@ -679,8 +679,14 @@
   }
   .hero,
   .section,
-  .team {
+  .team,
+  .showcase,
+  .statsBand,
+  .footer {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  .linkCard {
+    padding: 24px;
   }
 }

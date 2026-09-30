@@ -6,14 +6,24 @@ import styles from './pumpkinator.module.css';
 // Swap or add entries here to update the video showcase (e.g. after recording a new one).
 const VIDEOS = [
   {
-    id: 'ddEIHEI_wCI',
-    title: 'Pumpkinator Electronics Overview',
-    caption: 'Electronics Overview',
+    id: '8D-cuuJtzis',
+    title: 'Pumpkinator Demo',
+    caption: 'Demo (At Night)',
+  },
+  {
+    id: 'WY683S-2anQ',
+    title: 'Pumpkinator Case Inside a Pumpkin',
+    caption: 'Case Inside A Pumpkin',
+  },
+  {
+    id: 'JXXX8wQJgJw',
+    title: 'Pumpkinator Electronics In The Case',
+    caption: 'Electronics In The Case',
   },
   {
     id: '08HcJdJ3jpE',
-    title: 'Pumpkinator Inside a Pumpkin',
-    caption: 'Inside A Real Pumpkin',
+    title: 'Pumpkinator Overview (alpha version)',
+    caption: 'Overview (Alpha Version)',
   },
 ];
 
