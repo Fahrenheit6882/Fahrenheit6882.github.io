@@ -298,8 +298,8 @@ export default function Pumpkinator(): JSX.Element {
         <section className={styles.statsBand}>
           <div className={styles.statsRow}>
             <div className={styles.statBlock}>
-              <div className={styles.statNum}>7</div>
-              <div className={styles.statLabel}>Prebuilt Sound And Light Shows, Or Create Your Own!</div>
+              <div className={styles.statNum}>12</div>
+              <div className={styles.statLabel}>Light And Sound Shows</div>
             </div>
             <div className={styles.statBlock}>
               <div className={styles.statNum}>$1,000</div>
