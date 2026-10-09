@@ -1,0 +1,299 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="Cartoon of Wedgewood, the team's robot mascot, flying up to a glowing jack-o-lantern. The Pumpkinator senses him, flashes colorful lights and plays music, then goes back to flickering like a candle.">
+  <style>
+    /* One 10 second loop:
+       0-28%   Wedgewood flies up while the pumpkin flickers like a candle
+       28-30%  motion sensor notices, Wedgewood is surprised
+       30-64%  light show and music
+       65-88%  Wedgewood flies away, pumpkin returns to candle flicker */
+
+    .kidMove { transform: translate(125px, -65px); animation: kidMove 10s linear infinite; }
+    @keyframes kidMove {
+      0%     { transform: translate(-130px, -20px) rotate(10deg) scaleX(1); animation-timing-function: ease-out; }
+      28%    { transform: translate(125px, -65px) rotate(0deg) scaleX(1); }
+      64%    { transform: translate(125px, -65px) rotate(0deg) scaleX(1); }
+      65%    { transform: translate(125px, -65px) rotate(0deg) scaleX(-1); animation-timing-function: ease-in; }
+      88%    { transform: translate(-130px, -20px) rotate(-10deg) scaleX(-1); }
+      88.01% { transform: translate(-130px, -20px) rotate(0deg) scaleX(1); }
+      100%   { transform: translate(-130px, -20px) rotate(0deg) scaleX(1); }
+    }
+
+    .bob { animation: bob 1.1s ease-in-out infinite alternate; }
+    @keyframes bob { from { transform: translateY(-5px); } to { transform: translateY(5px); } }
+
+    .flame { transform-box: fill-box; transform-origin: 50% 0%; animation: flame .18s ease-in-out infinite alternate; }
+    @keyframes flame { from { transform: scaleY(.85); } to { transform: scaleY(1.12); } }
+
+    .eyeWide { transform-box: fill-box; transform-origin: center; animation: eyeWide 10s ease-out infinite; }
+    @keyframes eyeWide {
+      0%, 29.5% { transform: scale(1); }
+      31%, 40%  { transform: scale(1.18); }
+      43%, 100% { transform: scale(1); }
+    }
+
+    .kidHop { animation: kidHop 10s ease-in-out infinite; }
+    @keyframes kidHop {
+      0%, 29.5% { transform: translateY(0); }
+      31%       { transform: translateY(-24px); }
+      33%       { transform: translateY(0); }
+      34.5%     { transform: translateY(-12px); }
+      36%, 100% { transform: translateY(0); }
+    }
+
+    .bang { opacity: 0; transform-box: fill-box; transform-origin: 50% 100%; animation: bang 10s ease-out infinite; }
+    @keyframes bang {
+      0%, 29.5% { opacity: 0; transform: scale(.3); }
+      31%       { opacity: 1; transform: scale(1.2); }
+      32%, 41%  { opacity: 1; transform: scale(1); }
+      43%, 100% { opacity: 0; transform: scale(1); }
+    }
+
+    /* candle mode: fades out for the show, flickers constantly underneath */
+    .candleGate { opacity: 1; animation: candleGate 10s ease-in-out infinite; }
+    @keyframes candleGate {
+      0%, 28% { opacity: 1; }
+      30%, 64% { opacity: 0; }
+      67%, 100% { opacity: 1; }
+    }
+    .flicker { animation: flicker .9s linear infinite; }
+    @keyframes flicker {
+      0%, 100% { opacity: .85; }
+      20% { opacity: 1; }
+      45% { opacity: .68; }
+      70% { opacity: .95; }
+    }
+
+    /* show mode: only visible during the light show */
+    .showGate { opacity: 0; animation: showGate 10s ease-in-out infinite; }
+    @keyframes showGate {
+      0%, 29% { opacity: 0; }
+      30%, 64% { opacity: 1; }
+      66%, 100% { opacity: 0; }
+    }
+    .rainbow { animation: rainbow 1.6s linear infinite; }
+    @keyframes rainbow {
+      0%, 100% { fill: #ff4fa3; }
+      25% { fill: #6c5cff; }
+      50% { fill: #2ee6c8; }
+      75% { fill: #ffe14d; }
+    }
+
+    .ring { opacity: 0; transform-box: fill-box; transform-origin: center; animation: ring 10s ease-out infinite; }
+    @keyframes ring {
+      0%, 28.5% { opacity: 0; transform: scale(.3); }
+      29%       { opacity: .9; transform: scale(.3); }
+      36%, 100% { opacity: 0; transform: scale(3); }
+    }
+
+    .note { animation: noteFloat 2s ease-out infinite; }
+    @keyframes noteFloat {
+      0%   { opacity: 0; transform: translate(0, 0) scale(.5) rotate(0deg); }
+      15%  { opacity: 1; transform: translate(calc(var(--dx) * .15), -25px) scale(1) rotate(calc(var(--rot) * .2)); }
+      85%  { opacity: .9; }
+      100% { opacity: 0; transform: translate(var(--dx), -170px) scale(1) rotate(var(--rot)); }
+    }
+
+    .cone { transform-box: fill-box; transform-origin: center; animation: pulse .35s ease-in-out infinite alternate; }
+    @keyframes pulse { from { transform: scale(1); } to { transform: scale(1.18); } }
+
+    .signal { stroke-dasharray: 6 10; animation: signal .6s linear infinite; }
+    @keyframes signal { to { stroke-dashoffset: -16; } }
+
+    .star { animation: twinkle 3s ease-in-out infinite alternate; }
+    @keyframes twinkle { from { opacity: .25; } to { opacity: 1; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+
+  <defs>
+    <clipPath id="scene"><rect width="800" height="420" rx="24"/></clipPath>
+    <clipPath id="lens"><circle cx="0" cy="0" r="99"/></clipPath>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+    <g id="face">
+      <path d="M296,215 L334,215 L315,180 Z"/>
+      <path d="M386,215 L424,215 L405,180 Z"/>
+      <path d="M351,238 L369,238 L360,224 Z"/>
+      <path d="M292,255 Q360,335 428,255 Q360,284 292,255 Z"/>
+    </g>
+    <g id="note1"><ellipse cx="0" cy="0" rx="7" ry="5" transform="rotate(-20)"/><rect x="5.5" y="-26" width="2.6" height="26" rx="1"/><path d="M8,-26 q10,3 8,14 q-2,-7 -8,-8z"/></g>
+    <g id="note2"><ellipse cx="0" cy="0" rx="7" ry="5" transform="rotate(-20)"/><ellipse cx="17" cy="-3" rx="7" ry="5" transform="rotate(-20 17 -3)"/><rect x="5.5" y="-26" width="2.6" height="26" rx="1"/><rect x="22.5" y="-29" width="2.6" height="26" rx="1"/><path d="M5.5,-26 L25,-30 L25,-23 L5.5,-19Z"/></g>
+  </defs>
+
+  <g clip-path="url(#scene)">
+    <!-- night sky -->
+    <rect width="800" height="420" fill="#1b1740"/>
+    <circle cx="722" cy="52" r="24" fill="#fff3c4"/>
+    <circle cx="714" cy="46" r="5" fill="#f1dfa0"/>
+    <circle cx="730" cy="60" r="3.5" fill="#f1dfa0"/>
+    <g fill="#fff">
+      <circle class="star" cx="60" cy="50" r="2.2"/>
+      <circle class="star" cx="150" cy="95" r="1.8" style="animation-delay:-1s"/>
+      <circle class="star" cx="250" cy="40" r="2.4" style="animation-delay:-2s"/>
+      <circle class="star" cx="470" cy="55" r="1.8" style="animation-delay:-.5s"/>
+      <circle class="star" cx="560" cy="28" r="2.2" style="animation-delay:-1.5s"/>
+      <circle class="star" cx="610" cy="75" r="1.6" style="animation-delay:-2.5s"/>
+      <circle class="star" cx="95" cy="160" r="1.6" style="animation-delay:-.8s"/>
+      <circle class="star" cx="430" cy="22" r="1.6" style="animation-delay:-1.8s"/>
+    </g>
+    <!-- ground -->
+    <rect y="335" width="800" height="85" fill="#2a2152"/>
+    <rect y="335" width="800" height="5" fill="#3a2f72"/>
+
+    <!-- glow behind the pumpkin -->
+    <g class="candleGate"><g class="flicker"><circle cx="360" cy="225" r="175" fill="#ffb347" opacity=".4" filter="url(#blur)"/></g></g>
+    <g class="showGate"><circle class="rainbow" cx="360" cy="225" r="185" opacity=".6" filter="url(#blur)"/></g>
+
+    <!-- pumpkin -->
+    <g transform="translate(0,-10)">
+      <ellipse cx="300" cy="235" rx="85" ry="110" fill="#f5822a"/>
+      <ellipse cx="420" cy="235" rx="85" ry="110" fill="#f5822a"/>
+      <ellipse cx="360" cy="235" rx="80" ry="118" fill="#ff9a3c"/>
+      <g fill="none" stroke="#e8710f" stroke-width="4" stroke-linecap="round" opacity=".8">
+        <path d="M300,128 Q256,235 300,342"/>
+        <path d="M420,128 Q464,235 420,342"/>
+        <path d="M360,120 Q343,235 360,350"/>
+      </g>
+      <path d="M352,122 Q350,92 362,80 L378,84 Q368,98 370,122 Z" fill="#5a7a2f"/>
+      <path d="M368,100 q30,-24 52,-8 q-14,22 -52,8z" fill="#6aa83c"/>
+
+      <!-- face: dark when off, candle yellow while idle, colors during the show -->
+      <use href="#face" fill="#5b1f05"/>
+      <g class="candleGate"><g class="flicker"><use href="#face" fill="#ffe27a"/></g></g>
+      <g class="showGate"><use class="rainbow" href="#face"/></g>
+      <g fill="#ff9a3c">
+        <rect x="328" y="268" width="15" height="16" rx="2"/>
+        <rect x="377" y="268" width="15" height="16" rx="2"/>
+      </g>
+
+      <!-- the motion sensor, drawn as a friendly little eye -->
+      <circle cx="238" cy="300" r="21" fill="#2b6fd6"/>
+      <circle cx="231" cy="300" r="16" fill="#fff"/>
+      <circle cx="226" cy="300" r="7" fill="#1e2a4a"/>
+      <circle cx="223.5" cy="297" r="2.2" fill="#fff"/>
+      <g fill="none" stroke="#fff" stroke-width="3">
+        <circle class="ring" cx="231" cy="300" r="20"/>
+        <circle class="ring" cx="231" cy="300" r="20" style="animation-delay:.25s"/>
+        <circle class="ring" cx="231" cy="300" r="20" style="animation-delay:.5s"/>
+      </g>
+    </g>
+
+    <!-- music notes during the show -->
+    <g class="showGate">
+      <g transform="translate(320,262)" fill="#ff4fa3"><g class="note" style="--dx:-70px;--rot:-20deg;animation-delay:0s"><use href="#note1"/></g></g>
+      <g transform="translate(400,262)" fill="#2ee6c8"><g class="note" style="--dx:80px;--rot:15deg;animation-delay:-.6s"><use href="#note2"/></g></g>
+      <g transform="translate(360,240)" fill="#ffe14d"><g class="note" style="--dx:10px;--rot:5deg;animation-delay:-1.1s"><use href="#note1"/></g></g>
+      <g transform="translate(300,282)" fill="#a78bfa"><g class="note" style="--dx:-110px;--rot:-10deg;animation-delay:-1.5s"><use href="#note2"/></g></g>
+      <g transform="translate(420,282)" fill="#7dd3fc"><g class="note" style="--dx:120px;--rot:12deg;animation-delay:-.3s"><use href="#note1"/></g></g>
+    </g>
+
+    <!-- Wedgewood, the team mascot, flying up on his jet -->
+    <g transform="translate(0,335)">
+      <g class="kidMove">
+        <g class="kidHop"><g class="bob">
+          <g transform="scale(.2) translate(-400,-720)" stroke="#666" stroke-width="5" stroke-linejoin="round">
+            <!-- jet flame -->
+            <g class="flame" stroke-width="4">
+              <path d="M287,570 L512,570 L400,722 Z" fill="#ff4d00" stroke="#ff2a00"/>
+              <path d="M315,585 L485,585 L400,702 Z" fill="#ff9500" stroke="none"/>
+              <path d="M340,598 L460,598 L400,686 Z" fill="#ffb02e" stroke="none"/>
+            </g>
+            <!-- thumbs-up arm -->
+            <rect x="590" y="348" width="120" height="78" fill="#d9d9d9"/>
+            <rect x="708" y="314" width="30" height="64" fill="#d9d9d9"/>
+            <circle cx="730" cy="397" r="50" fill="#d9d9d9"/>
+            <!-- hanging arm -->
+            <rect x="188" y="440" width="78" height="80" fill="#d9d9d9"/>
+            <path d="M172,545 a58,58 0 1 1 106,-18 L232,538 L230,586 Q172,580 172,545 Z" fill="#d9d9d9"/>
+            <!-- body -->
+            <path d="M262,322 L540,322 L500,556 L300,556 Z" fill="#ff0000" stroke="#a80000"/>
+            <path d="M262,322 L362,372 L328,556 L300,556 Z" fill="#cc0000" stroke="none"/>
+            <rect x="298" y="556" width="204" height="11" rx="5" fill="#d9d9d9"/>
+            <!-- team logo: thermometer F on a gear -->
+            <path d="M388,375 L455,375 L455,397 L416,397 L416,418 L442,418 L442,436 L416,436 L416,505 L388,505 Z" fill="#fff" stroke="none"/>
+            <circle cx="400" cy="498" r="37" fill="#1a1a1a" stroke="none"/>
+            <circle cx="400" cy="498" r="23" fill="#fff" stroke="none"/>
+            <path d="M400,481 Q410,496 408,505 Q400,514 392,505 Q390,496 400,481 Z" fill="#e8242b" stroke="none"/>
+            <!-- shoulders -->
+            <circle cx="230" cy="390" r="72" fill="#d9d9d9"/>
+            <circle cx="580" cy="390" r="72" fill="#d9d9d9"/>
+            <!-- head -->
+            <rect x="228" y="0" width="359" height="162" rx="58" fill="#d9d9d9"/>
+            <rect x="228" y="255" width="359" height="87" rx="40" fill="#d9d9d9"/>
+            <path d="M322,4 L322,160 M322,258 L322,338" fill="none"/>
+            <rect x="237" y="160" width="343" height="98" fill="#000" stroke="none"/>
+            <ellipse cx="492" cy="208" rx="63" ry="82" fill="#000" stroke="none"/>
+            <g class="eyeWide">
+              <ellipse cx="492" cy="208" rx="40" ry="46" fill="#00ffff" stroke="#4a6fe0" stroke-width="5"/>
+              <circle cx="514" cy="196" r="12" fill="#fff" stroke="none"/>
+            </g>
+            <path d="M452,30 L534,30 L492,80 Z" fill="#ff0000" stroke="#a80000" stroke-width="4"/>
+            <rect x="452" y="312" width="70" height="11" rx="4" fill="#ff0000" stroke="#a80000" stroke-width="3"/>
+          </g>
+          <g class="bang">
+            <rect x="22" y="-186" width="9" height="24" rx="4" fill="#ffe14d"/>
+            <circle cx="26.5" cy="-152" r="5" fill="#ffe14d"/>
+          </g>
+        </g></g>
+      </g>
+    </g>
+
+    <!-- peek inside: a magnified look at the electronics -->
+    <circle cx="445" cy="275" r="13" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 5" stroke-linecap="round"/>
+    <path d="M456,271 Q500,256 556,228" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 7" stroke-linecap="round" opacity=".8"/>
+
+    <circle cx="658" cy="204" r="104" fill="#000" opacity=".25"/>
+    <circle cx="655" cy="200" r="100" fill="#ffe9c7"/>
+    <g clip-path="url(#lens)" transform="translate(655,200)">
+      <!-- orange case -->
+      <rect x="-80" y="-56" width="160" height="112" rx="14" fill="#ff7a1a"/>
+      <rect x="-70" y="-46" width="140" height="92" rx="8" fill="#7a2f08"/>
+
+      <!-- LED strip -->
+      <g fill="#5b1f05">
+        <circle cx="-48" cy="-36" r="6"/><circle cx="-24" cy="-36" r="6"/><circle cx="0" cy="-36" r="6"/><circle cx="24" cy="-36" r="6"/><circle cx="48" cy="-36" r="6"/>
+      </g>
+      <g class="candleGate"><g class="flicker" fill="#ffd34d">
+        <circle cx="-48" cy="-36" r="6"/><circle cx="-24" cy="-36" r="6"/><circle cx="0" cy="-36" r="6"/><circle cx="24" cy="-36" r="6"/><circle cx="48" cy="-36" r="6"/>
+      </g></g>
+      <g class="showGate">
+        <circle class="rainbow" cx="-48" cy="-36" r="6"/>
+        <circle class="rainbow" cx="-24" cy="-36" r="6" style="animation-delay:-.32s"/>
+        <circle class="rainbow" cx="0" cy="-36" r="6" style="animation-delay:-.64s"/>
+        <circle class="rainbow" cx="24" cy="-36" r="6" style="animation-delay:-.96s"/>
+        <circle class="rainbow" cx="48" cy="-36" r="6" style="animation-delay:-1.28s"/>
+      </g>
+
+      <!-- wires -->
+      <g fill="none" stroke="#c98a4b" stroke-width="2.5" stroke-linecap="round">
+        <path d="M-30,4 L-30,10"/>
+        <path d="M-16,26 Q0,34 16,16"/>
+        <path d="M-70,-10 Q-66,-14 -62,-12"/>
+      </g>
+      <g class="showGate"><g class="signal" fill="none" stroke="#ffe14d" stroke-width="3" stroke-linecap="round">
+        <path d="M-30,4 L-30,10"/>
+        <path d="M-16,26 Q0,34 16,16"/>
+        <path d="M-70,-10 Q-66,-14 -62,-12"/>
+      </g></g>
+
+      <!-- Arduino, with a face -->
+      <rect x="-62" y="-26" width="76" height="30" rx="6" fill="#2b6fd6"/>
+      <rect x="-8" y="-21" width="18" height="18" rx="3" fill="#1e2a4a"/>
+      <circle cx="-50" cy="-15" r="4" fill="#fff"/><circle cx="-36" cy="-15" r="4" fill="#fff"/>
+      <circle cx="-49" cy="-15" r="1.8" fill="#1e2a4a"/><circle cx="-35" cy="-15" r="1.8" fill="#1e2a4a"/>
+      <path d="M-48,-6 Q-43,-1 -38,-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- sound card -->
+      <rect x="-62" y="10" width="46" height="30" rx="5" fill="#19b394"/>
+      <rect x="-67" y="20" width="7" height="10" rx="1.5" fill="#cfd3da"/>
+      <circle cx="-44" cy="25" r="3" fill="#0e6b59"/><circle cx="-32" cy="25" r="3" fill="#0e6b59"/>
+
+      <!-- speaker -->
+      <circle cx="42" cy="14" r="26" fill="#3a3a52"/>
+      <circle cx="42" cy="14" r="16" fill="#6b6b8a"/>
+      <circle cx="42" cy="14" r="6" fill="#232337"/>
+      <g class="showGate"><circle class="cone" cx="42" cy="14" r="16" fill="#8a8aae"/><circle cx="42" cy="14" r="6" fill="#232337"/></g>
+    </g>
+    <circle cx="655" cy="200" r="100" fill="none" stroke="#fff" stroke-width="5"/>
+  </g>
+</svg>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Head from '@docusaurus/Head';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import styles from './pumpkinator.module.css';
 
@@ -220,13 +221,11 @@ export default function Pumpkinator(): JSX.Element {
             </div>
           </div>
 
-          <div className={styles.pumpkinWrap}>
-            <div className={styles.pumpkinBody} />
-            <div className={`${styles.eye} ${styles.eyeLeft}`} />
-            <div className={`${styles.eye} ${styles.eyeRight}`} />
-            <div className={styles.mouth} />
-            <div className={styles.stem} />
-          </div>
+          <img
+            className={styles.heroAnimation}
+            src={useBaseUrl('/img/pumpkinator-animation.svg')}
+            alt="Cartoon of Wedgewood, the team's robot mascot, flying up to a glowing jack-o-lantern. The Pumpkinator senses him, flashes colorful lights and plays music, then goes back to flickering like a candle."
+          />
         </section>
 
         <section id="how-it-works" className={styles.section}>
@@ -335,15 +334,15 @@ export default function Pumpkinator(): JSX.Element {
               <p>Troubleshoot your kit: most fixes take under a minute, no tools required.</p>
               <span className={styles.linkCardCta}>Troubleshooting Guide &rarr;</span>
             </a>
-            <a href={`${DOCS_BASE}/build-your-own`} target="_blank" rel="noopener noreferrer" className={styles.linkCard}>
+            <a href={`${DOCS_BASE}/preparation-steps`} target="_blank" rel="noopener noreferrer" className={styles.linkCard}>
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" strokeWidth={1.6}>
                 <rect x="3" y="3" width="18" height="18" rx="2" />
                 <path d="M3 9h18" />
                 <path d="M9 21V9" />
               </svg>
-              <h3>Want the full details?</h3>
-              <p>How it works, the full parts list and wiring diagrams to build your own, or how to customize a kit's sounds and lights.</p>
-              <span className={styles.linkCardCta}>Full Details &rarr;</span>
+              <h3>Want to build your own?</h3>
+              <p>Step-by-step preparation and assembly instructions with every wiring connection, so you can make one from scratch.</p>
+              <span className={styles.linkCardCta}>Build Guide &rarr;</span>
             </a>
           </div>
 

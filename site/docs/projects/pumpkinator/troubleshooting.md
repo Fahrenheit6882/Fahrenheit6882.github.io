@@ -37,7 +37,7 @@ If that doesn't fix it, open the case and check the wiring below.
 
 ## Still stuck?
 
-For complete details on exactly where each component should connect, read through [Full Details About The Pumpkinator](./build-your-own).
+For complete details on exactly where each component should connect, read through the [Assembly Steps](./assembly-steps).
 
 If you've checked all of the above and it's still not working, don't force anything open further or start unplugging things at random. Reach out and we're happy to help, or take a look at it in person:
 

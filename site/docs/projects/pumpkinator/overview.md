@@ -11,56 +11,19 @@ The **Pumpkinator** is a Halloween prop built by Fahrenheit Robotics Team 6882 s
 Check out the [Pumpkinator landing page](/site/pumpkinator).
 :::
 
-- **Something not working right?** → [Troubleshooting Your Kit](./troubleshooting): kits ship fully assembled, but wires can shift in transit. Most fixes take under a minute.
-- **Want to source parts and build your own?** → [Full Details About The Pumpkinator](./build-your-own): full parts list, wiring, and assembly instructions.
+<div style={{maxWidth: '640px', margin: '1.5rem 0'}}>
 
-<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1.5rem 0'}}>
-  <iframe
-    width="560" height="315"
-    src="https://www.youtube.com/embed/ddEIHEI_wCI"
-    title="Pumpkinator Electronics Overview"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  />
-  <iframe
-    width="560" height="315"
-    src="https://www.youtube.com/embed/08HcJdJ3jpE"
-    title="Pumpkinator Inside a Pumpkin"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  />
+![Cartoon of a kid walking up to a glowing pumpkin that flashes colorful lights and plays music, with a peek inside at the electronics](img/pumpkinator-animation.svg)
+
 </div>
 
 ## What It Does
 
-1. A PIR motion sensor detects someone approaching.
-2. The Arduino triggers a pre-loaded Halloween sound effect through a small speaker.
-3. WS2812B RGB LEDs flash a light show in sync with the effect.
-4. Everything resets and waits for the next visitor.
-
-## Key Components
-
-| Component | Role |
-|---|---|
-| Arduino Nano | Main controller |
-| JQ6500 MP3 module | Plays audio from onboard flash storage |
-| PIR motion sensor | Detects movement ~1 ft away |
-| WS2812B LEDs (2–3) | RGB light effects inside the pumpkin |
-| Small speaker (8Ω) | Sound output |
-| 4× AA battery box | ~6V power supply |
-| KCD11 rocker switch | On/off switch built into the enclosure |
-
-## 3D Printed Case
-
-All electronics mount inside a **custom 3D-printed enclosure** (roughly 110mm × 70mm × 40mm). The box sits inside the pumpkin with:
-
-- LED strip mounted in a channel on top, shining up through the pumpkin lid
-- Speaker fitted into a compartment built specifically to hold it, facing down so sound bounces off the inside of the pumpkin
-- Motion sensor on a detachable pigtail wire that pokes out the back
-
-View the design in [Onshape](https://cad.onshape.com/documents/50248517973a6125d7752796/w/cd35b777a41ef71427da35af/e/c062e51bb227c2f4638bb4cc?renderMode=0&uiState=6abc4a38128b139c0eef7836).
+1. While it waits, the LEDs flicker like a candle burning inside the pumpkin.
+2. A PIR motion sensor detects someone approaching.
+3. The Arduino triggers a pre-loaded Halloween sound effect through a small speaker.
+4. WS2812B RGB LEDs flash a light show in sync with the effect.
+5. Everything resets to the candle flicker and waits for the next visitor.
 
 ## Why This Project
 
@@ -72,6 +35,202 @@ Building the Pumpkinator teaches students real-world skills across multiple disc
 - **Manufacturing:** 3D printing, assembly-line techniques for batch production
 
 It also gives the team a tangible fundraiser item with a story behind it.
+
+## Components
+
+### Arduino Nano
+
+The main controller. It reads the motion sensor, plays sounds through the JQ6500, and drives the LEDs.
+
+<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'flex-start', margin: '1rem 0'}}>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/arduino-nano.jpg').default}
+      alt="Arduino Nano on a breadboard"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Arduino Nano on a breadboard</figcaption>
+  </figure>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '360px'}}>
+    <img
+      src={require('./img/arduino-nano-pinout.jpg').default}
+      alt="Arduino Nano pinout diagram"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Pinout (from Components101)</figcaption>
+  </figure>
+</div>
+
+More details: [Arduino Nano on Components101](https://components101.com/microcontrollers/arduino-nano). The official [Arduino Nano pinout PDF](https://docs.arduino.cc/resources/pinouts/A000005-full-pinout.pdf) is also available.
+
+### JQ6500 MP3 module
+
+Plays audio from onboard flash storage.
+
+The board shown here is actually marked **HW-896V2.0.2**, a clone of the JQ6500 module. It works the same way and is sold under both names.
+
+<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'flex-start', margin: '1rem 0'}}>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/jq6500-hw-896.jpg').default}
+      alt="HW-896V2.0.2 JQ6500 clone MP3 module"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>HW-896V2.0.2 (JQ6500 clone)</figcaption>
+  </figure>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '360px'}}>
+    <img
+      src={require('./img/jq6500-pinout.jpg').default}
+      alt="JQ6500 pinout diagram"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Pinout (from Components101)</figcaption>
+  </figure>
+</div>
+
+More details: [JQ6500 on Components101](https://components101.com/modules/jq6500-mp3-player-module-pinout-features-datasheet-working-application-alternative).
+
+### PIR motion sensor
+
+Detects movement about 1 ft away. This is an HC-SR501, which has two onboard dials for sensitivity and how long the output stays on.
+
+<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0'}}>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/pir-sensor-03.jpg').default}
+      alt="HC-SR501 PIR sensor, lens side"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Lens side</figcaption>
+  </figure>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/pir-sensor-02.jpg').default}
+      alt="HC-SR501 PIR sensor, side view showing the two adjustment dials"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Side view with the two dials</figcaption>
+  </figure>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/pir-sensor-01.jpg').default}
+      alt="HC-SR501 PIR sensor, back side showing the 3 pins"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Back side with the 3 pins</figcaption>
+  </figure>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '360px'}}>
+    <img
+      src={require('./img/pir-sensor-pinout.png').default}
+      alt="HC-SR501 PIR sensor pinout diagram"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Pinout (from Components101)</figcaption>
+  </figure>
+</div>
+
+More details: [HC-SR501 on Components101](https://components101.com/sensors/hc-sr501-pir-sensor).
+
+### WS2812B LEDs (2 to 3)
+
+RGB light effects inside the pumpkin.
+
+<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'flex-start', margin: '1rem 0'}}>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/leds-02.jpg').default}
+      alt="Reel of WS2812B LED strip with a length unrolled"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>The LED strip comes on a reel</figcaption>
+  </figure>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/leds-01.jpg').default}
+      alt="Close-up of the WS2812B LED strip showing the +5V, Din, GND and DO pads"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Close-up of the pads between LEDs</figcaption>
+  </figure>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/leds-03.jpg').default}
+      alt="Cutting the LED strip between two LEDs with a pair of cutters"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>Cut the strip at the pads between LEDs</figcaption>
+  </figure>
+  <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>
+    <img
+      src={require('./img/leds-04.jpg').default}
+      alt="A two-LED piece of strip with wires soldered on"
+      style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+    />
+    <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>A cut piece with wires soldered on</figcaption>
+  </figure>
+</div>
+
+More details: [WS2812B on Components101](https://components101.com/displays/ws2812b-addressable-rgb-led).
+
+### Small speaker (8Ω)
+
+Sound output.
+
+<figure style={{margin: '1rem 0', textAlign: 'center', maxWidth: '240px'}}>
+  <img
+    src={require('./img/speaker-01.jpg').default}
+    alt="The speaker with its red and black wires, plus the short wires and resistor that connect the sound card to the Arduino"
+    style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+  />
+  <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>The speaker, along with the wires needed to connect the sound card to the Arduino</figcaption>
+</figure>
+
+### 4× AA battery box
+
+About 6V of power.
+
+<figure style={{margin: '1rem 0', textAlign: 'center', maxWidth: '240px'}}>
+  <img
+    src={require('./img/battery-box-01.jpg').default}
+    alt="4 AA battery box with red and black wires"
+    style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+  />
+  <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>4× AA battery box</figcaption>
+</figure>
+
+### KCD11 rocker switch
+
+On/off switch built into the enclosure. It's a simple two-terminal on/off (SPST) rocker, so the generic SPST rocker pinout applies.
+
+<figure style={{margin: '1rem 0', textAlign: 'center', maxWidth: '360px'}}>
+  <img
+    src={require('./img/rocker-switch-pinout.png').default}
+    alt="SPST rocker switch pinout diagram"
+    style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+  />
+  <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>SPST rocker pinout (from Components101)</figcaption>
+</figure>
+
+More details: [SPST rocker switch on Components101](https://components101.com/switches/spst-rocker-switch-non-illuminated).
+
+## 3D Printed Case
+
+All electronics mount inside a **custom 3D-printed enclosure** (roughly 110mm × 70mm × 40mm). The box sits inside the pumpkin with:
+
+- LED strip mounted in a channel on top, shining up through the pumpkin lid
+- Speaker fitted into a compartment built specifically to hold it, facing down so sound bounces off the inside of the pumpkin
+- Motion sensor on a detachable pigtail wire that pokes out the back
+
+<figure style={{margin: '1rem 0', textAlign: 'center', maxWidth: '240px'}}>
+  <img
+    src={require('./img/case-01.jpg').default}
+    alt="The 3D-printed case in two pieces, the lid and the base"
+    style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+  />
+  <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>The 3D-printed case, lid and base</figcaption>
+</figure>
+
+View the design in [Onshape](https://cad.onshape.com/documents/50248517973a6125d7752796/w/cd35b777a41ef71427da35af/e/c062e51bb227c2f4638bb4cc?renderMode=0&uiState=6abc4a38128b139c0eef7836).
 
 ## Battery Life
 
