@@ -7,7 +7,16 @@ sidebar_position: 3
 
 These are the steps needed to prepare a kit before it's assembled. Preparation involves soldering and crimping, so it works best when done in batches across many kits at once. Each item below produces a finished part or sub-harness that gets plugged in later during [Assembly Steps](./assembly-steps), which needs very few tools, if any.
 
-1. **Print the cases.** 3D print the case, lid, and battery cradle for each kit. Printing takes the longest, so start here.
+1. **Print the cases.** 3D print the case, lid, and battery cradle for each kit. Printing takes the longest, so start here. The design is in [Onshape](https://cad.onshape.com/documents/50248517973a6125d7752796/w/cd35b777a41ef71427da35af/e/c062e51bb227c2f4638bb4cc?renderMode=0&uiState=6abc4a38128b139c0eef7836).
+
+   <figure style={{margin: '1rem 0', textAlign: 'center', maxWidth: '360px'}}>
+     <img
+       src={require('./img/case-01.jpg').default}
+       alt="Two orange 3D printed case pieces sitting on a wooden table"
+       style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+     />
+     <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>A printed case</figcaption>
+   </figure>
 2. **Solder header pins onto the Arduino and JQ6500 (if needed).** Arduino Nano and JQ6500 boards sometimes ship with their pin headers unsoldered and loose in the bag rather than attached. If yours came this way, solder the header pins onto both boards so they can plug into a breadboard.
 
    <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'flex-start', margin: '1rem 0'}}>
@@ -65,11 +74,29 @@ These are the steps needed to prepare a kit before it's assembled. Preparation i
      <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>A finished LED harness: two LEDs with wires soldered on</figcaption>
    </figure>
 5. **Prep the PIR sensor harness.** Cut 3 strands of 26 AWG wire, about 20 inches each: black for ground, red for power, and a third color (yellow, blue, or green) for signal. Braid the 3 wires together to keep them from tangling. Crimp a connector onto one end of each wire and tin the other end with solder. Plug the crimped ends into the PIR sensor: with the sensor's dome facing up and the pin side facing you pointing down, the left pin is ground, the center pin is signal, and the right pin is power.
+
+   <figure style={{margin: '1rem 0', textAlign: 'center', maxWidth: '240px'}}>
+     <img
+       src={require('./img/pir-sensor-04.jpg').default}
+       alt="A PIR sensor with long black, green and red wires attached, lying on a wooden table"
+       style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+     />
+     <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>A finished PIR sensor harness</figcaption>
+   </figure>
 6. **Prep the speaker harness.** Cut off the speaker's existing connector. Crimp a Molex male connector onto the black wire and another Molex male connector onto the red wire, then tape the two connectors together so they stay aligned as a pair.
 7. **Cut the sound card jumper wires.** These connect the Arduino to the JQ6500 sound card. Solid core wire works well here since each one is a short breadboard-to-breadboard hop. Cut and strip four wires per kit:
    - **Power:** a 2.5-inch red wire (Arduino 5V to the sound card).
    - **Ground:** a 2-inch black or white wire (Arduino GND to the sound card).
    - **TX line:** a 3-inch wire in any color other than red, black, or white (Arduino D2 to the sound card).
    - **RX line:** a 2-inch wire in any color other than red, black, or white (from the resistor row to the sound card). Include a 1 kΩ resistor with each kit, since this line needs one.
+
+   <figure style={{margin: '1rem 0', textAlign: 'center', maxWidth: '240px'}}>
+     <img
+       src={require('./img/speaker-01.jpg').default}
+       alt="The speaker with its red and black wires, plus the short wires and resistor that connect the sound card to the Arduino"
+       style={{width: '100%', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,0.25)'}}
+     />
+     <figcaption style={{fontSize: '0.85rem', opacity: 0.7, marginTop: '0.5rem'}}>The speaker, along with the wires needed to connect the sound card to the Arduino</figcaption>
+   </figure>
 
 Once a batch of these is ready, hand them off along with the printed cases, breadboards, and remaining loose parts so students can complete the rest of the build in [Assembly Steps](./assembly-steps).

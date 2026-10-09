@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Troubleshooting Your Kit'
-sidebar_position: 2
+sidebar_position: 6
 ---
 
 # Troubleshooting Your Pumpkinator Kit
