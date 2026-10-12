@@ -5,13 +5,13 @@ sidebar_position: 5
 
 # Pumpkinator: Light and Sound Shows
 
-The Pumpkinator's candle flicker, light shows, and sound effects all come from two places: the **code** running on the Arduino Nano, and the **MP3 files** stored on the JQ6500 sound card. This page shows how to load both, which is also how you would change the shows or swap in your own sounds.
+The Pumpkinator's candle flicker, light shows, and sound effects all come from two places: the **code** running on the Arduino Nano, and the **MP3 files** stored on the sound card. This page shows how to load both, which is also how you would change the shows or swap in your own sounds.
 
 :::note Tested on Windows only
-These steps have only been tested on a Windows laptop. They may work on a Mac or Linux computer, but we haven't tried. The sound loading script in particular is written for Windows PowerShell.
+These steps have only been tested on a Windows laptop. They may work on a Mac or Linux computer, but we haven't tried. The sound loading tools in particular (a Windows PowerShell script and `MusicDownload.exe`) are Windows programs.
 :::
 
-You will need a **micro USB cable** that can carry data (not just charge). The Arduino Nano and the JQ6500 sound card both use the same kind of cable.
+You will need a **micro USB cable** that can carry data (not just charge). The Arduino Nano and the sound card both use the same kind of cable.
 
 ## How to update the code on the Arduino
 
@@ -87,21 +87,24 @@ After a few seconds, if the LEDs are connected, they should flicker like a candl
 | `Access denied` or the port is busy | Close anything else that might be using the port, such as another Arduino IDE window or a serial monitor, then unplug and replug the Arduino |
 | `No such file or directory` mentioning a `.h` file | A library is missing. Go back to step 8 |
 
-## How to load MP3s onto the JQ6500
+## How to load MP3s onto the sound card
 
-The JQ6500 sound card stores the sound effects itself, and the Arduino tells it which one to play. The sound files live in the same team GitHub project as the code, in the `sounds/pumpkin_files` folder, as 12 numbered MP3s (`001_disco.mp3`, `002_crazy_clown_laugh.mp3`, and so on).
+The sound card stores the sound effects itself, and the Arduino tells it which one to play. The sound files live in the same team GitHub project as the code, in the `sounds/pumpkin_files` folder, as 12 numbered MP3s (`001_disco.mp3`, `002_crazy_clown_laugh.mp3`, and so on).
 
-:::info Why the order matters
-Our sound card (the HW-896, a JQ6500 clone) plays files in the order they were **written** to it, not in alphabetical order. The code expects track 1 to be the disco sound, track 2 to be the clown laugh, and so on. So the files must be copied on one at a time, in number order. The script described below does this for you.
-:::
+Kits come with one of two sound cards, and they load sounds differently:
+
+- **HW-896V2.0.2:** connect it, run a copy script, eject it.
+- **True JQ6500:** connect it, run `MusicDownload.exe`, eject it.
+
+Not sure which one you have? Step 3 shows how to tell.
 
 ### 1. Get the Pumpkinator project
 
-If you haven't already, download the project from [github.com/Fahrenheit6882/pumpkin](https://github.com/Fahrenheit6882/pumpkin) (**Code**, then **Download ZIP**, then unzip it), as described in step 7 above.
+You'll need the Pumpkinator project, because it contains the MP3s that match the `pumpkin.ino` code you loaded above. If you haven't already, download it from [github.com/Fahrenheit6882/pumpkin](https://github.com/Fahrenheit6882/pumpkin) (**Code**, then **Download ZIP**, then unzip it), as described in step 7 above.
 
-### 2. Connect the JQ6500 to your laptop
+### 2. Connect the sound card to your laptop
 
-Plug a micro USB cable into the JQ6500 sound card, and plug the other end into your laptop. Make sure the Arduino isn't also plugged into the same laptop, so there's no confusion about which device is which.
+Plug a micro USB cable into the sound card, and plug the other end into your laptop. Make sure the Arduino isn't also plugged into the same laptop, so there's no confusion about which device is which.
 
 A new drive should appear in Windows. Open **File Explorer**, choose **This PC**, and look for a new drive, shown as something like `USB Drive (D:)`. On our laptop it appears as `D:`, but the letter may be different on yours. Make a note of the letter.
 
@@ -111,12 +114,35 @@ A new drive should appear in Windows. Open **File Explorer**, choose **This PC**
 2. Try a different USB port on the laptop.
 3. Unplug the cable, wait a few seconds, and plug it back in.
 
-### 3. Run the script to copy the sounds in order
+### 3. Which sound card do you have?
+
+Some kits come with an **HW-896V2.0.2** sound card, and some come with a **true JQ6500**. (The HW-896V2.0.2 is a clone of the JQ6500, so the two look almost identical and play sounds the same way.)
+
+You can look for the model name printed on the chip, but the letters are tiny and really hard to read. It's usually easier to check how the card behaves. With the card plugged in, open its drive in File Explorer:
+
+- If you see a **`MusicDownload.exe`** program, it's a **true JQ6500**.
+- If the drive is **empty**, or it contains some **MP3 files**, it's an **HW-896V2.0.2**.
+
+Then follow the matching section in step 4.
+
+### 4. Load the sounds onto the sound card
+
+:::info Why the order matters
+The sound card plays files in the order they were **written** to it, not in alphabetical order. The code expects track 1 to be the disco sound, track 2 to be the clown laugh, and so on. So the files must be loaded one at a time, in number order, and leftover files from an earlier load would keep their old position. Both methods below take care of this.
+:::
+
+#### HW-896V2.0.2: copy script
+
+:::caution Don't drag the MP3s onto the drive yourself
+The drive is right there, so it's tempting, but dragging files over won't put them in the right order. Use the script.
+:::
+
+**Step 1: Run the script to copy the sounds in order.**
 
 The project includes a script that copies the MP3s onto the sound card in the right order. It also deletes any old MP3 or WAV files already on the card first, because leftover files would keep their old position in the play order.
 
 1. Open **PowerShell** in the project folder. In File Explorer, open the downloaded `pumpkin` project folder, click the address bar, type `powershell`, and press Enter.
-2. Run this command, replacing `D:` with the drive letter from step 2:
+2. Run this command, replacing `D:` with the drive letter you noted when you connected the sound card:
 
    ```powershell
    .\scripts\copy-sounds-in-order.ps1 -Destination D:
@@ -132,10 +158,35 @@ powershell -ExecutionPolicy Bypass -File .\scripts\copy-sounds-in-order.ps1 -Des
 
 To preview what the script would do without copying or deleting anything, add `-WhatIf` to the end of the command.
 
-### 4. Unplug the sound card safely
+**Step 2: Unplug the sound card safely.**
 
-In File Explorer, right-click the sound card drive and choose **Eject**, then unplug the USB cable. The sounds are now stored on the card, and it will keep them even with no power.
+In File Explorer, right-click the sound card drive and choose **Eject**, then unplug the USB cable. The sounds are now stored on the sound card, and it will keep them even with no power.
+
+#### True JQ6500: MusicDownload.exe
+
+The true JQ6500 doesn't work with the copy script. Instead, use its own loader program, **MusicDownload.exe**.
+
+**Step 1: Load the MP3s with MusicDownload.exe.**
+
+1. Run `MusicDownload.exe` from the sound card's drive.
+
+   The app is sometimes in Chinese, which can be confusing. If you see `????` where the labels should be, don't worry. You can still do everything by following the position of the tabs and buttons below.
+2. Click the **second tab** (it shows `????`), then click the **button with Chinese text on it**. A file picker opens. Go to the `sounds/pumpkin_files` folder of the Pumpkinator project, choose all **12 MP3s**, and click **OK**. Make sure the files end up in number order (`001_disco.mp3` first, then `002_...`, and so on). The order you load them in is the track order, so a wrong order means the wrong sounds play.
+
+   ![MusicDownload.exe second tab with the 12 MP3 files loaded in the list and the Chinese browse button on the right](img/music-download-files-tab.png)
+
+3. Click the **first tab** (also `????`), then click the **large button with Chinese text on it** to upload the files to the sound card.
+
+   ![MusicDownload.exe first tab with the large Chinese upload button in the middle and a progress bar along the bottom](img/music-download-upload-tab.png)
+
+4. Wait a while. It's confusing because the status text is in Chinese too, but if you look closely at the status area, it will say **done** followed by some strange characters when the upload has finished. Don't unplug the card before then.
+
+If you're reloading a sound card that already has sounds, make sure the old ones are cleared out or replaced, so leftover files don't shift the track order.
+
+**Step 2: Unplug the sound card safely.**
+
+In File Explorer, right-click the sound card drive and choose **Eject**, then unplug the USB cable. The sounds are now stored on the sound card, and it will keep them even with no power.
 
 ### Using your own sounds
 
-To use your own sounds, put your MP3 files in `sounds/pumpkin_files` with number prefixes (`001_...`, `002_...`) in the order you want, then run the script again. The code also needs to know how long each sound is so it can time the light show: update the `TRACK_DURATIONS` list and `TRACK_COUNT` near the top of `pumpkin/pumpkin.ino`, then upload the code again using the steps above.
+To use your own sounds, put your MP3 files in `sounds/pumpkin_files` with number prefixes (`001_...`, `002_...`) in the order you want, then load them onto the sound card again using step 4. The code also needs to know how long each sound is so it can time the light show: update the `TRACK_DURATIONS` list and `TRACK_COUNT` near the top of `pumpkin/pumpkin.ino`, then upload the code again using the steps above.

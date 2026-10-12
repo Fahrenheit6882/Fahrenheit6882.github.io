@@ -67,7 +67,7 @@ More details: [Arduino Nano on Components101](https://components101.com/microcon
 
 Plays audio from onboard flash storage.
 
-The board shown here is actually marked **HW-896V2.0.2**, a clone of the JQ6500 module. It works the same way and is sold under both names.
+The board shown here is actually marked **HW-896V2.0.2**, a clone of the JQ6500 module. It works the same way and is sold under both names. Some kits use a true JQ6500 instead, and the two load sounds differently (see [Light and Sound Shows](./light-and-sound-shows#how-to-load-mp3s-onto-the-sound-card)).
 
 <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'flex-start', margin: '1rem 0'}}>
   <figure style={{margin: 0, textAlign: 'center', maxWidth: '240px'}}>

@@ -5,10 +5,14 @@ sidebar_position: 6
 
 # Troubleshooting Your Pumpkinator Kit
 
-Your Pumpkinator kit was assembled and tested by a Fahrenheit Robotics student before it got to you, but it's built on a breadboard, and breadboard wires **can shift loose during shipping or handling**. The good news: almost every issue is a loose wire, and fixing it takes under a minute and needs no soldering or tools beyond your fingers.
+Your Pumpkinator kit was assembled and tested by a Fahrenheit Robotics student before it got to you, but it's built on a breadboard, and breadboard wires **can shift loose during shipping or handling**. The good news: fixing it is usually pretty easy, and usually needs no soldering or tools beyond your fingers.
 
 :::danger Before you touch anything
-Never let the two speaker wires touch each other, the battery wires, or any ground wire. Speaker wires should only ever touch the speaker's own terminals. Connecting them anywhere else can permanently damage the sound module. If you ever smell something burning or see smoke, unplug the battery immediately.
+Working with 6V from 4 AA batteries is generally very safe, but there's one thing worth taking seriously: **never let power touch ground**. A short circuit between the battery's positive (red or yellow) and negative (black or white) wires lets a lot of current flow, and even with AA batteries that can heat the wires and batteries enough to melt the case or, in rare cases, start a small fire. Remember that wire colors aren't always reliable (see below), so if in doubt, remove the batteries before you move wires around.
+
+Also, never let the two speaker wires touch each other, the battery wires, or any ground wire. Speaker wires should only ever touch the speaker's own terminals. Connecting them anywhere else can permanently damage the sound module.
+
+If anything gets hot, or you smell something burning or see smoke, remove the batteries immediately.
 :::
 
 ## Opening The Case
@@ -18,10 +22,28 @@ The lid has tabs on each side that you need to press in to remove the lid. Open 
 ## First, the easy stuff
 
 1. **Is the switch on?** The rocker switch is on the outside of the case.
-2. **Fresh batteries, right way round?** The kit uses 4× AA batteries (not included). Check the `+`/`−` markings on the battery cradle match how the batteries are inserted, and try a fresh set.
+2. **Fresh batteries, oriented correctly?** The kit uses 4× AA batteries (not included). The battery case may not have `+`/`−` labels, so use the springs to tell which way each battery goes: the flat **negative (−)** end of each battery goes against the **spring**, and the **positive (+)** end (the small bump) goes at the end with **no spring**. Try a fresh set if you're unsure.
 3. **Give the PIR sensor a few seconds.** The motion sensor needs about 10–60 seconds to "warm up" after power-on before it will reliably detect motion.
 
-If that doesn't fix it, open the case and check the wiring below.
+If that doesn't fix it, check the wiring below.
+
+## Wire colors: what to expect (and what might not match)
+
+When you're tracing a wire, it helps to know the color conventions we *tried* to follow while preparing the kits:
+
+| Color | Usually means |
+|---|---|
+| Red | Power (+) |
+| Yellow | Power (+), used when we ran out of red |
+| Black or white | Ground (−) |
+| Green or blue | Signal (data) |
+
+Wire comes in sets of 6 colors, which is why you'll sometimes see yellow doing red's job.
+
+:::warning Tips to check wiring
+Kits were prepared by hand, and a few wires ended up the wrong color or swapped.
+So **don't trust wire color alone**. If a color doesn't match the table above, that may just be a prep mistake and not the cause of your problem. The [Assembly Steps](./assembly-steps) show where each wire should connect, and the markings printed on the parts (`+`, `−`, `VCC`, `GND`, `OUT`) are more reliable than the wire color.
+:::
 
 ## Symptom → likely cause → fix
 

@@ -209,11 +209,6 @@ export default function Pumpkinator(): JSX.Element {
               6882, hiding inside a real pumpkin near you this Halloween.
             </p>
 
-            <div className={styles.heroCtas}>
-              <a href="#how-it-works" className={styles.btnPrimary}>See It Work</a>
-              <a href="#get-one" className={styles.btnGhost}>Get A Kit ($45)</a>
-            </div>
-
             <div className={styles.heroStats}>
               <div className={styles.statChip}>Hand-built by students</div>
               <div className={styles.statChip}>15&ndash;20 hrs battery life</div>
