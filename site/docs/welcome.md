@@ -3,7 +3,7 @@ sidebar_label: 'Welcome'
 sidebar_position: 1
 ---
 
-# Fahrenheit Robotics Team Guides
+# Fahrenheit Robotics Team 6882
 
 Welcome Students and Mentors!
 
@@ -39,4 +39,11 @@ Above all, we build more than robots — we build STEM skills, leadership, and *
 ![Team 6882 at an event in Alexandria](img/team-photo-alexandria-2026.jpeg)
 
 Check out our match history and rankings on [The Blue Alliance](https://www.thebluealliance.com/team/6882), or reach out — we'd love to have you join us. Find us on [Discord](https://discord.com/channels/505146464037634050), [Facebook](https://www.facebook.com/fahrenheitrobotics), or by [email](mailto:fahrenheitrobotics@gmail.com).
+
+## Team Handbooks
+
+Our handbooks cover team expectations, policies, and how the season runs for the 2026-2027 school year:
+
+- [Student Handbook 2026-2027](./handbooks/student-handbook-2026-2027.pdf)
+- [Mentor Handbook 2026-2027](./handbooks/mentor-handbook-2026-2027.pdf)
 
