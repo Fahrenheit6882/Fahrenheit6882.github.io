@@ -1,0 +1,147 @@
+.page {
+  --bg: #120d0a;
+  --bg-raised: #1c1510;
+  --border: rgba(255, 238, 214, 0.14);
+  --ink: #f6eedd;
+  --ink-muted: #c7b9a6;
+  --accent: #ff7a29;
+  --accent-ink: #1b1210;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: radial-gradient(ellipse at top, rgba(255, 122, 41, 0.18), transparent 60%), var(--bg);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  padding: 32px 24px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.title {
+  margin: 8px 0 12px;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.lead {
+  margin: 0 0 24px;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.lead strong {
+  color: var(--ink);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input {
+  padding: 14px;
+  font-size: 16px; /* 16px stops iOS from zooming on focus */
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+
+.btnPrimary {
+  padding: 16px 28px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btnPrimary:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.btnPrimary:focus-visible,
+.skip a:focus-visible,
+.links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.skip a,
+.links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.skip a:hover,
+.links a:hover {
+  text-decoration: underline;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}

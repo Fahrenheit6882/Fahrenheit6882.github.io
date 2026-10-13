@@ -214,6 +214,12 @@ export default function Pumpkinator(): JSX.Element {
               <div className={styles.statChip}>15&ndash;20 hrs battery life</div>
               <div className={styles.statChip}>DIY electronics project</div>
             </div>
+
+            <div className={styles.buyRow}>
+              <a href={useBaseUrl('/pumpkinator-support')} className={`${styles.btnPrimary} ${styles.buyBtn}`}>
+                Buy a Pumpkinator to support the team &rarr;
+              </a>
+            </div>
           </div>
 
           <img
