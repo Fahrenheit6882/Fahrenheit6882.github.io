@@ -322,7 +322,7 @@ export default function Pumpkinator(): JSX.Element {
             Already have a kit? Want to build your own? Check out our guides.
           </h2>
           <p className={styles.getOneCopy}>
-            Every kit is handed out for a suggested $45 donation to the team, fully assembled but
+            Every kit is handed out for a suggested donation to the team, fully assembled but
             delicate. Whichever situation you're in, here's where to go next.
           </p>
 
