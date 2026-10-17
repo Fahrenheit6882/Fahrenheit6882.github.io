@@ -18,7 +18,6 @@ const ENTRY_SOURCE = 'entry.386780462';
 const FORM_URL = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
 const FORM_CONFIGURED = !FORM_ID.startsWith('REPLACE');
 
-const SUGGESTED_DONATION = '$45';
 const DOCS_BASE = '/docs/projects/pumpkinator';
 
 // Never let a failed or slow sign-up block the payment: wait at most this long, then go to PayPal.
@@ -74,7 +73,7 @@ export default function PumpkinatorSupport(): JSX.Element {
             PUMPKIN<span className={styles.accent}>ATOR</span>
           </h1>
           <p className={styles.lead}>
-            Every kit is handed out for a suggested <strong>{SUGGESTED_DONATION}</strong> donation to
+            Every kit is handed out for a suggested donation to
             our student robotics team. Pop in your email first so we can send you troubleshooting help
             and news of next year's batch, then pay securely with PayPal.
           </p>
