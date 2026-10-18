@@ -298,7 +298,7 @@ export default function Pumpkinator(): JSX.Element {
         <section className={styles.statsBand}>
           <div className={styles.statsRow}>
             <div className={styles.statBlock}>
-              <div className={styles.statNum}>12</div>
+              <div className={styles.statNum}>10</div>
               <div className={styles.statLabel}>Light And Sound Shows</div>
             </div>
             <div className={styles.statBlock}>

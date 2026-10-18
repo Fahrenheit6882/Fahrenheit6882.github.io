@@ -16,7 +16,7 @@ As more components need 5V and GND, running every single one straight to the Ard
 :::
 
 4. **Load the code onto the Arduino.** Follow [How to update the code on the Arduino](./light-and-sound-shows#how-to-update-the-code-on-the-arduino) to install the Arduino IDE, connect the Arduino with a micro USB cable, and upload the Pumpkinator code.
-5. **Load the sounds onto the sound card.** Follow [How to load MP3s onto the sound card](./light-and-sound-shows#how-to-load-mp3s-onto-the-sound-card) to copy the 12 sound effects onto the sound card in order. The method depends on whether your kit has an HW-896V2.0.2 or a true JQ6500, and that page covers both.
+5. **Load the sounds onto the sound card.** Follow [How to load MP3s onto the sound card](./light-and-sound-shows#how-to-load-mp3s-onto-the-sound-card) to copy the 10 sound effects onto the sound card in order. The method depends on whether your kit has an HW-896V2.0.2 or a true JQ6500, and that page covers both.
 6. **Wire and test the LEDs.** Connect the red wire from the LED to the **5V** pin on the Arduino. Connect the ground wire (black or white) to the **GND** pin on the Arduino. Connect the signal wire to **D6** on the Arduino. To test: unplug the USB cable from the Arduino, close the Arduino IDE if it's open, then plug the USB cable back into the Arduino. Wait a few seconds — the LEDs should blink like a candle inside a pumpkin.
 
    <figure style={{margin: '1rem 0', textAlign: 'center', maxWidth: '240px'}}>

@@ -82,14 +82,14 @@ After a few seconds, if the LEDs are connected, they should flicker like a candl
 
 | Error or symptom | What to try |
 |---|---|
-| `programmer is not responding` or `not in sync` | Try the other **Processor** option (step 6), double check the **Port** (step 4), and try a different USB cable |
+| `programmer is not responding` or `not in sync` | Try the other **Processor** option (step 6), double check the **Port** (step 4), and try a different USB cable. Also make sure nothing, such as a stray wire, is connected to the Nano's **RST** pin |
 | Port list is empty, or the port is grayed out | Go back to step 3: cable, USB port, and CH340 driver |
 | `Access denied` or the port is busy | Close anything else that might be using the port, such as another Arduino IDE window or a serial monitor, then unplug and replug the Arduino |
 | `No such file or directory` mentioning a `.h` file | A library is missing. Go back to step 8 |
 
 ## How to load MP3s onto the sound card
 
-The sound card stores the sound effects itself, and the Arduino tells it which one to play. The sound files live in the same team GitHub project as the code, in the `sounds/pumpkin_files` folder, as 12 numbered MP3s (`001_disco.mp3`, `002_crazy_clown_laugh.mp3`, and so on).
+The sound card stores the sound effects itself, and the Arduino tells it which one to play. The sound files live in the same team GitHub project as the code, in the `sounds` folder, as 10 numbered MP3s (`001_disco.mp3`, `002_crazy_clown_laugh.mp3`, and so on).
 
 Kits come with one of two sound cards, and they load sounds differently:
 
@@ -148,7 +148,9 @@ The project includes a script that copies the MP3s onto the sound card in the ri
    .\scripts\copy-sounds-in-order.ps1 -Destination D:
    ```
 
-3. The script lists the files in playback order and then prints `Copied ...` for each one. When it finishes it prints `Done. Copied 12 file(s)`.
+3. The script lists the files in playback order and then prints `Copied ...` for each one. When it finishes it prints `Done. Copied 10 file(s)`.
+
+The script also reads `pumpkin/pumpkin.ino` and checks that the number of MP3s matches the number of entries in its `TRACK_DURATIONS` list. If they differ, it prints a warning (the copy still goes ahead). That means the code and the sounds are out of sync: fix `TRACK_DURATIONS` and upload the code again (see [Using your own sounds](#using-your-own-sounds)).
 
 If PowerShell refuses to run the script with a message about scripts being disabled, run this version instead, which allows the script to run just this once:
 
@@ -171,9 +173,9 @@ The true JQ6500 doesn't work with the copy script. Instead, use its own loader p
 1. Run `MusicDownload.exe` from the sound card's drive.
 
    The app is sometimes in Chinese, which can be confusing. If you see `????` where the labels should be, don't worry. You can still do everything by following the position of the tabs and buttons below.
-2. Click the **second tab** (it shows `????`), then click the **button with Chinese text on it**. A file picker opens. Go to the `sounds/pumpkin_files` folder of the Pumpkinator project, choose all **12 MP3s**, and click **OK**. Make sure the files end up in number order (`001_disco.mp3` first, then `002_...`, and so on). The order you load them in is the track order, so a wrong order means the wrong sounds play.
+2. Click the **second tab** (it shows `????`), then click the **button with Chinese text on it**. A file picker opens. Go to the `sounds` folder of the Pumpkinator project, choose all **10 MP3s**, and click **OK**. Make sure the files end up in number order (`001_disco.mp3` first, then `002_...`, and so on). The order you load them in is the track order, so a wrong order means the wrong sounds play.
 
-   ![MusicDownload.exe second tab with the 12 MP3 files loaded in the list and the Chinese browse button on the right](img/music-download-files-tab.png)
+   ![MusicDownload.exe second tab with the MP3 files loaded in the list and the Chinese browse button on the right](img/music-download-files-tab.png)
 
 3. Click the **first tab** (also `????`), then click the **large button with Chinese text on it** to upload the files to the sound card.
 
@@ -183,10 +185,42 @@ The true JQ6500 doesn't work with the copy script. Instead, use its own loader p
 
 If you're reloading a sound card that already has sounds, make sure the old ones are cleared out or replaced, so leftover files don't shift the track order.
 
+**If your card doesn't have `MusicDownload.exe` on it:** the loader is no longer stored in the Pumpkinator project, so download it instead:
+
+- A zip with a loader for each flash size (8, 16, 32, 64 and 128 MBit): [JQ6500.voice.chip.module.zip](https://github.com/sleemanj/JQ6500_Serial/files/1821040/JQ6500.voice.chip.module.zip), shared in [JQ6500_Serial issue #6](https://github.com/sleemanj/JQ6500_Serial/issues/6).
+- English-language versions of the loader, from the same issue, on [Google Drive](https://drive.google.com/open?id=1Kt1FV0__WelMJlX1oZE-hFp9kx6NCMFq).
+- On Linux, try the [JQ6500-rescue-tool](https://github.com/NikolaiRadke/JQ6500-rescue-tool).
+
+Pick the version that matches the flash size of your module. The size is printed on the flash chip on the underside of the board: for example, `25X16` means 16 MBit.
+
 **Step 2: Unplug the sound card safely.**
 
 In File Explorer, right-click the sound card drive and choose **Eject**, then unplug the USB cable. The sounds are now stored on the sound card, and it will keep them even with no power.
 
-### Using your own sounds
+## Which light show goes with which sound
 
-To use your own sounds, put your MP3 files in `sounds/pumpkin_files` with number prefixes (`001_...`, `002_...`) in the order you want, then load them onto the sound card again using step 4. The code also needs to know how long each sound is so it can time the light show: update the `TRACK_DURATIONS` list and `TRACK_COUNT` near the top of `pumpkin/pumpkin.ino`, then upload the code again using the steps above.
+The tracks play one after another in order, and wrap back to the first after the last one. Each track has its own light show:
+
+| # | Sound | Light show |
+|---|---|---|
+| 1 | `001_disco` | Random colors |
+| 2 | `002_crazy_clown_laugh` | White strobe |
+| 3 | `003_music_box` | Red, blue, yellow, green |
+| 4 | `004_organ` | Solid blue |
+| 5 | `005_cat` | White strobe (the default) |
+| 6 | `006_electricty` | Purple blinks, then white |
+| 7 | `007_beast` | Solid green |
+| 8 | `008_space_weasel` | Purple and yellow alternating |
+| 9 | `009_ufo` | White strobe (the default) |
+| 10 | `010_wolf` | Solid red |
+
+Any track without its own light show uses the white strobe.
+
+## Using your own sounds
+
+1. Put your MP3 files in the `sounds` folder with number prefixes (`001_...`, `002_...`) in the order you want them played.
+2. Edit `TRACK_DURATIONS` near the top of `pumpkin/pumpkin.ino`. It needs one length in milliseconds per track, in the same order as the files. `TRACK_COUNT` is worked out from this list automatically, so you don't need to change it. A missing or extra entry makes the code read past the end of the list and get stuck, so keep the list and the files in sync.
+3. Update the `state == N` checks in the `loop()` function so each light show follows the right track.
+4. Upload the code again using the steps above, and load the sounds onto the sound card again using step 4.
+
+**Stuck flashing white and silent?** The number of entries in `TRACK_DURATIONS` doesn't match the number of MP3s on the sound card. Fix whichever is wrong, then upload the code and reload the sounds.
